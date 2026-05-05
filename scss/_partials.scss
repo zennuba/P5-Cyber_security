@@ -1,0 +1,24 @@
+/*Variables*/
+/*Global variables - er ikke i en "kasse"*/
+$bg-color: #F5F7FA;
+$primary-color: #515C84;
+$secondary-color: #000000;
+$accent-color: #5FD3BC;
+$text-color: #1F2430;
+$font: SF Pro Display, Source Code Pro, Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+
+/* Mixin*/
+/* Mixin er en måde at genbruge kode på. Man tager kode som bruges flere steder og samler det i en mixin */
+
+/* inde i paranteserne kan man have parametre og variabler 
+- så bliver det en lokal mixin*/
+
+@mixin btn($bg-color: $primary-color, $btn-padding){
+    background-color: $bg-color;
+    padding: $btn-padding;
+    border-radius: 8px;
+    color: #F5F7FA;
+    text-decoration: none;
+    text-align: center;
+
+}
