@@ -1,88 +1,143 @@
 <!DOCTYPE html>
 <html lang="da">
+
 <head>
   <meta charset="UTF-8">
-
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- fortælller ældre browsere at de skal benytte seneste rendering-mode - ikke vigtig mere, men god -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cybersikkerhed</title>
-    <script src="js/script.js" defer></script>
-    <script src="js/script-screens.js" defer></script>
-    <link rel="stylesheet" href="css/style.css">
+  <script src="js/script-screens.js" defer></script>
+  <script src="js/script.js" defer></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <a href="#main-content" class="screen-reader-text">Skip to main content</a>
-      <header>
-  <nav class="site-nav" aria-label="site-navigation" >
-    <ul class="site-nav__list">
-      <li class="site-nav__item">
-        <a href="#" class="site-nav__link">Forside</a>
-      </li>
-      <li class="site-nav__item">
-        <a href="#Cyber Sikkerhed" class="site-nav__link">Alt om Cybersikkerhed</a>        
-      </li>
-      <li class="site-nav__item">
-        <a href="#Kontakt" class="site-nav__link">Kontakt</a>
-      </li>
-    </ul>
-  </nav> 
-  </header>
 
-<section id="main-content" aria-label="main-content">
-  <hero>
-    <div class="bannertitle">
-      <h1>Cyber<br>Hero</h1>
-        <h2>Træning i CyberSikkerhed</h2>
-      <!-- Indsæt en border i SCSS her-->
-      <div class="textbox-info">
-        <h3>Test din viden om cyber sikkerhed</h3>
-          <h4>Hvad skal du være opmærksom på, få redskaber til at agere og blive CYBER HERO på din kommende arbejdsplads</h4>
+<body>
+  <a href="#main-content" class="screen-reader-text">Skip to main content
+  </a>
+  <header>
+    <nav class="site-nav" aria-label="site-navigation">
+      <ul class="site-nav__list">
+        <li class="site-nav__item">
+          <a href="#" class="site-nav__link">Forside</a>
+        </li>
+        <li class="site-nav__item">
+          <a href="#Cyber Sikkerhed" class="site-nav__link">Alt om Cybersikkerhed</a>
+        </li>
+        <li class="site-nav__item">
+          <a href="#Kontakt" class="site-nav__link">Kontakt</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content" aria-label="main-content">
+    <section class="screen hero" data-screen="hero">
+      <div class="hero__title">
+        <h1 class="hero__logo-text">
+          <span>Cyber</span>
+          <span>Hero</span>
+        </h1>
+        <h2 class="hero__subtitle">Træning i CyberSikkerhed</h2>
+        <!-- Indsæt en border i SCSS her-->
+        <div class="hero__info">
+          <h3 class="hero__info-title">Test din viden om cyber sikkerhed</h3>
+          <h4 class="hero__info-text">Hvad skal du være opmærksom på, få redskaber til at agere og blive CYBER HERO på din kommende arbejdsplads
+          </h4>
+        </div>
+      </div>
+    </section>
+    <section class="screen card is-hidden" data-screen="case-intro">
+      <img class="card__img" src="" alt="">
+      <div class="card__header">
+        <h2 class="card__title">Smishing Alert1</h2>
+        <h3 class="card__subtitle">Du modtager en sms fra ukendt nummer med besked om at ændre din eksamensdato</h3>
+        <div class="card__content">
+          <h3 class="card__subtitle">Dette kan du efter øvelsen:</h3>
+          <ul class="card__list">
+            <li class="card__item">genkende smishing</li>
+            <li class="card__item">agere med ro i maven</li>
+            <li class="card__item">reagere hvis uheldet sker</li>
+          </ul>
+          <h4 class="card__info">Målgruppe: Studerende</h4>
+          <h4 class="card__info">Varighed: 3-5 min.</h4>
+          <button class="card__btn card__btn--start" data-go-to="case-start">START smishing-øvelsen</button>
+        </div>
+      </div>
+    </section>
+    <section class="screen q-card is-hidden" data-screen="case-start">
+      <div class="q-card__img">
+        <img src="imgs/ChatGPT Image 3. maj 2026, 11.30.20.png" alt="Smishing illustration">
+      </div>
+      <div class="q-card__header">
+        <h2 class="q-card__title">Smishing Alert</h2>
+        <h3 class="q-card__subtitle"></h3>
+        <p class="q-card__bodytext">Du modtager en sms fra ukendt nummer med beskeden:</p>
+      </div>
+      <div class="q-card__img">
+        <img src="imgs/ChatGPT Image 3. maj 2026, 11.30.20.png" alt="Smishing illustration">
+      </div>
+      <div class="q-card__content">
+        <h3 class="q-card__subtitle"></h3>
+        <h2 class="q-card__question">Hvordan reagerer du?</h2>
+        <button class="q-card__btn q-card__btn--question" data-action="check">Svar 1</button>
+        <button class="q-card__btn q-card__btn--question" data-action="check">Svar 2</button>
+        <button class="q-card__btn q-card__btn--question" data-action="check">Svar 3</button>
+      </div>
+    </section>
+    <section class="screen consequence-card is-hidden" data-screen="feedback">
+      <div class="consequence-card__img">
+        <img src="imgs/image 8.png" alt="Smishing illustration">
+      </div>
+      <div class="consequence-card__header">
+        <h2 class="consequence-card__title">Smishing Alerttertete</h2>
+        <h3 class="consequence-card__subtitle">test tes test</h3>
+        <p class="consequence-card__bodytext">Du modtager en sms fra ukendt nummer med beskeden:</p>
+      </div>
+      <div class="consequence-card__img">
+        <img src="imgs/ChatGPT Image 3. maj 2026, 11.30.20.png" alt="Smishing illustration">
+      </div>
+      <div class="consequence-card__content">
+        <h3 class="consequence-card__subtitle"></h3>
+        <h2 class="consequence-card__question">Hvordan reagerer du?</h2>
+        <button class="consequence-card__btn consequence-card__btn--question" data-action="check">Svar click</button>
+        <button class="consequence-card__btn consequence-card__btn--question" data-action="check">Svar ignore</button>
+        <button class="consequence-card__btn consequence-card__btn--question" data-action="check">Svar check</button>
+      </div>
+    </section>
+    <section class="screen end-card is-hidden" data-screen="end">
+      <div class="end-card__header">
+          <h2 class="end-card__title">Du er nu Cyber-Hero</h2>
+          <h3 class="end-card__subtitle">Du har nu gennemført Smishing-øvelsen og kan nu:</h3>
+          <h3 class="end-card__subtitle">Dette kan du efter øvelsen:</h3>
+          <ul class="end-card__list">
+            <li class="end-card__item">genkende smishing</li>
+            <li class="end-card__item">agere med ro i maven</li>
+            <li class="end-card__item">reagere hvis uheldet sker</li>
+          </ul>
+      </div>    
+      <div class="end-card__body">
+        <p class="end-card__bodytext">Du modtager en sms fra ukendt nummer med beskeden:</p>
+        <div class="end-card__img">
+          <img src="imgs/ch-finish-shield-ai.png" alt="Smishing illustration">
+        </div>
+      </div>
+    </section>
+    <section class="screen next-card is-hidden" data-screen="next">
+            <div class="next-card__content">
+        <h3 class="next-card__subtitle"></h3>
+        <h2 class="next-card__question">Hvad kan du nu?</h2>
+        <button class="next-card__btn next-card__btn--next" data-action="check">Svar click</button>
+        <button class="next-card__btn next-card__btn--next" data-action="check">Svar ignore</button>
+        <button class="next-card__btn next-card__btn--next" data-action="check">Svar check</button>
+      </div>
+    </section>
+  </main>
+  <section class="footer">
+    <div class="footer__logobox">
+      <div class="footer__logo-img"> 
+        <img src="/imgs/Group 17.png" alt="logo">
       </div>
     </div>
-    </div>
-  </hero>
-</section>
-
-<section class="card">
-  <img class="card__img" src="" alt="">
-  <div class="card__header">
-    <h2 class="card__title">Smishing Alert</h2>
-      <h3 class="card__subtitle">Du modtager en sms fra ukendt nummer med besked om at ændre din eksamensdato</h3>
-  </div>
-  <ul class="card__list">
-    <li class="card__item"></li>
-    <li class="card__item"></li>
-    <li class="card__item"></li>
-    <h4 class="card__info"></h4>
-    <h4 class="card__info"></h4>
-  </ul>
-    <button class="card__btn"> START </button>
-</section>
-
-<section class="q-card">
-    <div class="q-card__img"> 
-      <img src="imgs/ChatGPT Image 3. maj 2026, 11.30.20.png" alt="Smishing illustration">
-    </div>
-    <div class="q-card__header">
-      <h2 class="q-card__title">Smishing Alert</h2>
-        <h3 class="q-card__subtitle"></h3>
-    </div>
-    
-    <h3 class="q-card__subtitle"></h3>
-    <ul card__list>
-      <li class="q-card__item">1</li>
-      <li class="q-card__item">2</li>
-      <li class="q-card__item">3</li>
-        <h4 class="q-card__info">Målgruppe</h4>
-        <h4 class="q-card__info">Varighed</h4>
-    </ul>
-    <button class="q-card__btn">Svar 1</button>
-    <button class="q-card__btn">Svar 1</button>
-    <button class="q-card__btn">Svar 1</button>
-</section>
-    <btn ></btn>
-
-    <footer></footer>
-  </body>
+  </section>
+</body>
 </html>
