@@ -1,1 +1,102 @@
-/*# sourceMappingURL=style.css.map */
+@charset "UTF-8";
+/* Mixin*/
+/* Mixin er en måde at genbruge kode på. Man tager kode som bruges flere steder og samler det i en mixin */
+/* 1. Reset / base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: SF Pro Display, Source Code Pro, Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #515c84;
+}
+
+p {
+  font-size: 16px;
+  font-family: SF Pro Display, Source Code Pro, Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2430;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  color: #1f2430;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* 3. Layout helpers */
+.is-hidden {
+  display: none;
+}
+
+.screen {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* 4. Navigation */
+/* 5. Sections / components */
+/*.hero,
+.consequence-card,
+.q-card__img,
+.end-card {
+  display: grid;
+  place-items: center;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.q-card__img img {
+  max-width: 320px;
+}
+*/
+/* 6. Footer */
+/* 7. States */
+/* 8. Media queries */
+/* 2. Accessibility */
+/*Skip to main content code snippet fra:https://www.a11y-collective.com/blog//*
+skip-to-main-content/ */
+/*.screen-reader-text {
+  position: absolute; //Positions the link absolutely on the page, allowing it to be placed anywhere.
+  left: -9999px; //Moves the link far off-screen to the left, making it invisible to sighted users.
+  z-index: 999; //Sets a high z-index, ensuring that the link will be on top of other page elements if it becomes visible.
+  padding: 1em;
+  background-color: black;
+  color: white;
+  opacity: 0; //Sets the link's opacity to 0, making it fully transparent and invisible.
+}
+
+.screen-reader-text:focus {
+  left: 50%; // When the link receives focus (e.g., when a keyboard user tabs to it), it is repositioned horizontally to the centre of the screen.
+  transform: translateX(
+    -50%
+  ); //This centres the link horizontally by moving it back to the left by 50% of its own width.
+  opacity: 1; //The link's opacity is set to 1, making it fully visible.
+}
+
+Incorporating Skip to Main Content Links for Better Website Accessibility - The A11Y Collective
+        Boost your website’s accessibility. Understand & implement 'Skip to Main Content' links for an inclusive web experience, better SEO & legal compliance*/
+img {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+}/*# sourceMappingURL=style.css.map */

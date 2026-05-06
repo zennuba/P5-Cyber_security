@@ -38,16 +38,20 @@
           <span>Hero</span>
         </h1>
         <h2 class="hero__subtitle">Træning i CyberSikkerhed</h2>
-        <!-- Indsæt en border i SCSS her-->
+
         <div class="hero__info">
-          <h3 class="hero__info-title">Test din viden om cyber sikkerhed</h3>
-          <h4 class="hero__info-text">Hvad skal du være opmærksom på, få redskaber til at agere og blive CYBER HERO på din kommende arbejdsplads
+          <h3 class="hero__info-title">Få styr på cyber sikkerhed inden du skal ud og finde job - det betaler sig</h3>
+          <h4 class="hero__info-text">Hvad skal du være opmærksom på, få redskaber til at agere og blive CYBER HERO på
+            din kommende arbejdsplads
           </h4>
         </div>
       </div>
+      <button class="hero__btn" data-go-to="case-smishing">Smishing-øvelsen</button>
     </section>
     <section class="screen card is-hidden" data-screen="case-intro">
-      <img class="card__img" src="" alt="">
+      <div class="card__img">
+        <img src="imgs/logo--blue-bg.png" alt="CyberHero-logo">
+      </div>
       <div class="card__header">
         <h2 class="card__title">Smishing Alert1</h2>
         <h3 class="card__subtitle">Du modtager en sms fra ukendt nummer med besked om at ændre din eksamensdato</h3>
@@ -60,13 +64,13 @@
           </ul>
           <h4 class="card__info">Målgruppe: Studerende</h4>
           <h4 class="card__info">Varighed: 3-5 min.</h4>
-          <button class="card__btn card__btn--start" data-go-to="case-start">START smishing-øvelsen</button>
+          <button class="card__btn card__btn--case" data-go-to="case-smishing">START smishing-øvelsen</button>
         </div>
       </div>
     </section>
-    <section class="screen q-card is-hidden" data-screen="case-start">
+    <section class="screen q-card is-hidden" data-screen="case-smishing">
       <div class="q-card__img">
-        <img src="imgs/ChatGPT Image 3. maj 2026, 11.30.20.png" alt="Smishing illustration">
+        <img src="imgs/logo--black-bg.png" alt="Smishing illustration">
       </div>
       <div class="q-card__header">
         <h2 class="q-card__title">Smishing Alert</h2>
@@ -74,19 +78,19 @@
         <p class="q-card__bodytext">Du modtager en sms fra ukendt nummer med beskeden:</p>
       </div>
       <div class="q-card__img">
-        <img src="imgs/ChatGPT Image 3. maj 2026, 11.30.20.png" alt="Smishing illustration">
+        <img src="imgs/logo--green-bg.png" alt="Smishing illustration">
       </div>
       <div class="q-card__content">
         <h3 class="q-card__subtitle"></h3>
         <h2 class="q-card__question">Hvordan reagerer du?</h2>
-        <button class="q-card__btn q-card__btn--question" data-action="check">Svar 1</button>
-        <button class="q-card__btn q-card__btn--question" data-action="check">Svar 2</button>
-        <button class="q-card__btn q-card__btn--question" data-action="check">Svar 3</button>
+        <button class="q-card__btn q-card__btn--choice" data-action="click">check</button>
+        <button class="q-card__btn q-card__btn--choice" data-action="click">ignore</button>
+        <button class="q-card__btn q-card__btn--choice" data-action="click">click</button>
       </div>
     </section>
     <section class="screen consequence-card is-hidden" data-screen="feedback">
       <div class="consequence-card__img">
-        <img src="imgs/image 8.png" alt="Smishing illustration">
+        <img src="imgs/logo--no-bg.png" alt="Smishing illustration">
       </div>
       <div class="consequence-card__header">
         <h2 class="consequence-card__title">Smishing Alerttertete</h2>
@@ -94,7 +98,7 @@
         <p class="consequence-card__bodytext">Du modtager en sms fra ukendt nummer med beskeden:</p>
       </div>
       <div class="consequence-card__img">
-        <img src="imgs/ChatGPT Image 3. maj 2026, 11.30.20.png" alt="Smishing illustration">
+        <img src="imgs/smishing--nobg.png" alt="Smishing illustration">
       </div>
       <div class="consequence-card__content">
         <h3 class="consequence-card__subtitle"></h3>
@@ -106,15 +110,15 @@
     </section>
     <section class="screen end-card is-hidden" data-screen="end">
       <div class="end-card__header">
-          <h2 class="end-card__title">Du er nu Cyber-Hero</h2>
-          <h3 class="end-card__subtitle">Du har nu gennemført Smishing-øvelsen og kan nu:</h3>
-          <h3 class="end-card__subtitle">Dette kan du efter øvelsen:</h3>
-          <ul class="end-card__list">
-            <li class="end-card__item">genkende smishing</li>
-            <li class="end-card__item">agere med ro i maven</li>
-            <li class="end-card__item">reagere hvis uheldet sker</li>
-          </ul>
-      </div>    
+        <h2 class="end-card__title">Du er nu Cyber-Hero</h2>
+        <h3 class="end-card__subtitle">Du har nu gennemført Smishing-øvelsen og kan nu:</h3>
+        <h3 class="end-card__subtitle">Dette kan du efter øvelsen:</h3>
+        <ul class="end-card__list">
+          <li class="end-card__item">genkende smishing</li>
+          <li class="end-card__item">agere med ro i maven</li>
+          <li class="end-card__item">reagere hvis uheldet sker</li>
+        </ul>
+      </div>
       <div class="end-card__body">
         <p class="end-card__bodytext">Du modtager en sms fra ukendt nummer med beskeden:</p>
         <div class="end-card__img">
@@ -123,7 +127,7 @@
       </div>
     </section>
     <section class="screen next-card is-hidden" data-screen="next">
-            <div class="next-card__content">
+      <div class="next-card__content">
         <h3 class="next-card__subtitle"></h3>
         <h2 class="next-card__question">Hvad kan du nu?</h2>
         <button class="next-card__btn next-card__btn--next" data-action="check">Svar click</button>
@@ -134,10 +138,11 @@
   </main>
   <section class="footer">
     <div class="footer__logobox">
-      <div class="footer__logo-img"> 
-        <img src="/imgs/Group 17.png" alt="logo">
+      <div class="footer__logo-img">
+        <img src="imgs/ch-finish-shield-ai.png" alt="logo">
       </div>
     </div>
   </section>
 </body>
+
 </html>

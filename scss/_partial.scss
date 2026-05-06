@@ -1,0 +1,31 @@
+$bg-color: #f5f7fa;
+$primary-color: #515c84;
+$secondary-color: #000000;
+$accent-color: #5fd3bc;
+$text-color: #1f2430;
+$font:
+  SF Pro Display,
+  Source Code Pro,
+  Segoe UI,
+  Tahoma,
+  Geneva,
+  Verdana,
+  sans-serif;
+
+/* Mixin*/
+/* Mixin er en måde at genbruge kode på. Man tager kode som bruges flere steder og samler det i en mixin */
+@mixin flex($justify: center, $align: center) {
+  /* inde i paranteserne kan man have parametre og variabler 
+- så bliver det en lokal mixin*/
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin btn($bg-color: $primary-color, $btn-padding: 1rem) {
+  background-color: $bg-color;
+  padding: $btn-padding;
+  border-radius: 8px;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+}

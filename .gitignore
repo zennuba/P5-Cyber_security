@@ -1,0 +1,61 @@
+# Regler (aktive)
+.vscode/
+scss/style.css.map
+Research/
+
+
+#Egne noter 
+# Formål med .gitignore
+# Kun gem det, der er relevant for projektet
+# → undgå støj, fejl og unødvendige filer
+
+# 1. .vscode/
+# Hvad er det:
+# lokale editor settings (extensions, workspace config)
+# Hvorfor ignorere:
+# er personlige (ikke fælles)
+# kan give konflikter mellem udviklere
+# ændrer ikke selve løsningen
+# Konklusion:
+# → ikke en del af produktet
+
+# 2. scss/style.css.map
+# Hvad er det:
+# sourcemap (kobler CSS → SCSS i dev tools)
+# Hvorfor ignorere:
+# auto-genereret
+# ændrer sig hele tiden
+# kan altid genskabes
+# Konklusion:
+# → build artifact (midlertidig fil)
+
+# 3. Research/
+# Hvad er det:
+# PDF’er, analyser, noter
+# Hvorfor ignorere:
+# ikke en del af selve web-løsningen
+# fylder i repo
+# ændrer ikke funktion eller UI
+# Hvornår man IKKE ignorerer:
+# hvis det er et krav i aflevering
+# eller dokumentation skal med
+
+# Overblik
+# Type              → Skal i Git?
+# --------------------------------
+# Kode (HTML, SCSS) → ✔️ ja
+# Assets (images)   → ✔️ ja
+# Settings (lokale) → ❌ nej
+# Build filer       → ❌ nej
+# Research          → ❌ (ofte nej)
+
+# Mental model
+# Git = det der får projektet til at køre
+# .gitignore = alt andet
+
+# Hurtig beslutningsregel
+# Spørg:
+# “Skal en anden kunne clone projektet og bruge det?”
+# ja → med i Git
+# nej → i .gitignore
+
