@@ -1,4 +1,43 @@
 const screens = {
+  "scenario-intro-phishing": {
+    typeLabel: "E-mail",
+    title: "Phishing",
+    bodyText:
+      "Du modtager en mail, der ligner den kommer fra en kendt tjeneste. Scenariet er ikke bygget færdigt endnu.",
+    choices: [
+      {
+        text: "Tilbage til forsiden",
+        next: "hero",
+      },
+    ],
+  },
+
+  "scenario-intro-cloud": {
+    typeLabel: "Cloud",
+    title: "Cloud-filer",
+    bodyText:
+      "Du skal vurdere, hvordan filer deles sikkert i skyen. Scenariet er ikke bygget færdigt endnu.",
+    choices: [
+      {
+        text: "Tilbage til forsiden",
+        next: "hero",
+      },
+    ],
+  },
+
+  "scenario-intro-router": {
+    typeLabel: "Netværk",
+    title: "Usikkert netværk",
+    bodyText:
+      "Du skal tage stilling til et netværk, der virker usikkert. Scenariet er ikke bygget færdigt endnu.",
+    choices: [
+      {
+        text: "Tilbage til forsiden",
+        next: "hero",
+      },
+    ],
+  },
+
   "scenario-intro-smishing": {
     typeLabel: "SMS",
     title: "Ny eksamensdato",

@@ -116,70 +116,113 @@ button:hover {
 .hero {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  padding: 3rem 1rem;
+  gap: 1.5rem;
+  padding: 2rem 1rem 4rem;
   background-color: $primary-color;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__logo-text,
+  &__subtitle {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  &__logo-text {
+    margin: 0;
+    font-size: clamp(3rem, 12vw, 6rem);
+    font-weight: 800;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    color: white;
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    font-weight: 400;
+    margin: 0;
+  }
+
+  &__line {
+    width: 80%;
+    height: 3px;
+    margin: 0 auto;
+    background-color: $accent-color;
+  }
+
+  &__image img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  &__textbox {
+    text-align: left;
+  }
+
+  &__big-text {
+    margin: 0 0 0.75rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  &__big-text span {
+    color: $accent-color;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+  }
+
+  &__info-text {
+    margin: 0;
+    color: white;
+    line-height: 1.45;
+  }
 }
 
-.hero__left .hero__right {
-  width: 100%;
-  text-align: center;
-}
-
-&__title {
-  max-width: 38rem;
-}
-
-&__logo-text,
-&__subtitle {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+.threat-menu {
+  display: grid;
   gap: 1rem;
-  text-align: center;
+  width: 100%;
 }
 
-&__logo-text {
-  margin-bottom: 1rem;
-  font-size: clamp(3rem, 12vw, 6rem);
-  font-weight: 800;
-  line-height: 0.9;
-  text-transform: uppercase;
+.threat-card {
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: 3px solid white;
+  border-radius: 8px;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
-&__subtitle {
-  color: white;
-  font-size: clamp(1.4rem, 5vw, 1.8rem);
-  font-weight: 400;
-  margin-top: 0.5rem;
+.threat-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 180ms ease;
 }
 
-&__big-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-top: 1rem;
-  max-width: 600px;
+.threat-card:hover,
+.threat-card:focus-visible {
+  border-color: $accent-color;
+  box-shadow: 0 0 0 4px rgba(95, 211, 188, 0.2);
+  transform: translateY(-2px);
 }
 
-&__big-text span {
-  color: $accent-color;
-  font-size: clamp(2rem, 7vw, 3.5rem);
+.threat-card:hover img,
+.threat-card:focus-visible img {
+  transform: scale(1.04);
 }
 
-&__big-text .white {
-  color: white;
-}
-
-&__info-text {
-  max-width: 34rem;
-  line-height: 1.4;
-}
-
-&__text-box {
-  text-align: center;
+.threat-card:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
 }
 
 .dynamic-screen {

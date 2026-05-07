@@ -32,58 +32,51 @@
   </header>
 
   <main id="main-content" aria-label="main-content">
-      <section class="screen hero" data-screen="hero">
-      
-        <div class="hero__title">
-          <h1 class="hero__logo-text">
-            <span>CYBER</span><br>
-            <span>HERO</span>
-          </h1>
-          <h2 class="hero__subtitle">Træning i cybersikkerhed</h2>
+    <section class="screen hero" data-screen="hero">
+      <div class="hero__title">
+        <h1 class="hero__logo-text">
+          <span>CYBER</span><br>
+          <span>HERO</span>
+        </h1>
+        <h2 class="hero__subtitle">Træning i cybersikkerhed</h2>
       </div>
-      
+
       <div class="hero__line"></div>
 
       <div class="hero__image">
-      <img src="imgs/hero_battles.png" alt="Cyber threats illustration">
+        <img src="imgs/hero_battles.png" alt="Cyber threats illustration">
       </div>
 
       <div class="hero__textbox">
         <h3 class="hero__big-text">
-        <span>Kan du spotte faresignalerne?</span>
-      </h3>
-      <p class="hero__info-text"> Brug din viden, lær at spotte de nyeste trusler og bliv CYBER HERO på din kommende arbejdsplads. Der er brug for dig!</p>
+          <span>Kan du spotte faresignalerne?</span>
+        </h3>
+        <p class="hero__info-text">
+          Brug din viden, lær at spotte de nyeste trusler og bliv CYBER HERO på din kommende arbejdsplads.
+          Der er brug for dig!
+        </p>
       </div>
-        <div class="hero__line"></div>
+
+      <div class="hero__line"></div>
       <h4 class="hero__info-text">Vælg en udfordring</h4>
 
       <section class="threat-menu" aria-label="Cybertrusler">
+        <button class="threat-card" type="button" data-go-to="scenario-intro-smishing">
+          <img src="imgs/threat--smishing.png" alt="Smishing illustration">
+        </button>
+
+        <button class="threat-card" type="button" data-go-to="scenario-intro-phishing">
+          <img src="imgs/threat--phishing.png" alt="Phishing illustration">
+        </button>
+
+        <button class="threat-card" type="button" data-go-to="scenario-intro-cloud">
+          <img src="imgs/threat--cloud.png" alt="Cloud-filer illustration">
+        </button>
+
+        <button class="threat-card" type="button" data-go-to="scenario-intro-router">
+          <img src="imgs/threat--router.png" alt="Router illustration">
+        </button>
       </section>
-    </section>
-
-         <button class="threat-card" 
-          type="button" data-go-to="scenario-intro-smishing">
-        <img src="imgs/threat--smishing.png" alt="Smishing illustration"></button>
-        
-        <button class="threat-card" 
-          type="button" data-go-to="scenario-intro-phishing">
-        <img src="imgs/threat--phishing.png" alt="Phishing illustration"></button>
-
-                <button class="threat-card" 
-          type="button" data-go-to="scenario-intro-cloud">
-        <img src="imgs/threat--cloud.png" alt="Trussel Cloud-filer illustration"></button>
-
-                <button class="threat-card" 
-          type="button" data-go-to="scenario-intro-router">
-        <img src="imgs/threat--router.png" alt="threat router illustration"></button>
-
-      </section>
-       
-
-</section>
-        
-      </div>
-<!--       <button class="hero__btn" type="button" data-go-to="scenario-intro-smishing">Smishing-øvelsen</button>
     </section>
 
     <section class="screen dynamic-screen is-hidden" data-screen="dynamic">
@@ -97,7 +90,7 @@
         <div class="dynamic-screen__choices"></div>
       </div>
     </section>
--->
+
     <section class="screen learn-more is-hidden" data-screen="learnMore">
       <div class="learn-more__content">
         <h2>Læs mere om cybersikkerhed</h2>

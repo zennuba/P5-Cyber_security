@@ -112,16 +112,12 @@ button:hover {
 .hero {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  padding: 3rem 1rem;
+  gap: 1.5rem;
+  padding: 2rem 1rem 4rem;
   background-color: #515c84;
 }
-.hero .hero__left .hero__right {
-  width: 100%;
-  text-align: center;
-}
 .hero__title {
-  max-width: 38rem;
+  text-align: center;
 }
 .hero__logo-text, .hero__subtitle {
   align-items: center;
@@ -131,7 +127,7 @@ button:hover {
   text-align: center;
 }
 .hero__logo-text {
-  margin-bottom: 1rem;
+  margin: 0;
   font-size: clamp(3rem, 12vw, 6rem);
   font-weight: 800;
   line-height: 0.9;
@@ -139,29 +135,76 @@ button:hover {
 }
 .hero__subtitle {
   color: white;
-  font-size: clamp(1.4rem, 5vw, 1.8rem);
+  font-size: clamp(1.2rem, 5vw, 1.8rem);
   font-weight: 400;
-  margin-top: 0.5rem;
+  margin: 0;
+}
+.hero__line {
+  width: 80%;
+  height: 3px;
+  margin: 0 auto;
+  background-color: #5fd3bc;
+}
+.hero__image img {
+  width: 100%;
+  border-radius: 8px;
+}
+.hero__textbox {
+  text-align: left;
 }
 .hero__big-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+  margin: 0 0 0.75rem;
   font-weight: 800;
   line-height: 1.1;
-  margin-top: 1rem;
-  max-width: 600px;
 }
 .hero__big-text span {
   color: #5fd3bc;
   font-size: clamp(2rem, 7vw, 3.5rem);
 }
-.hero__big-text .white {
-  color: white;
-}
 .hero__info-text {
-  max-width: 34rem;
-  line-height: 1.4;
+  margin: 0;
+  color: white;
+  line-height: 1.45;
+}
+
+.threat-menu {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+}
+
+.threat-card {
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: 3px solid white;
+  border-radius: 8px;
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.threat-card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  transition: transform 180ms ease;
+}
+
+.threat-card:hover,
+.threat-card:focus-visible {
+  border-color: #5fd3bc;
+  box-shadow: 0 0 0 4px rgba(95, 211, 188, 0.2);
+  transform: translateY(-2px);
+}
+
+.threat-card:hover img,
+.threat-card:focus-visible img {
+  transform: scale(1.04);
+}
+
+.threat-card:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
 }
 
 .dynamic-screen {

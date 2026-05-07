@@ -19,10 +19,12 @@ function renderFeedback(currentScreen) {
 
   if (!currentScreen.feedback) {
     feedbackElement.className = "dynamic-screen__feedback";
+    feedbackElement.classList.add("is-hidden");
     return;
   }
 
   feedbackElement.className = `dynamic-screen__feedback dynamic-screen__feedback--${currentScreen.feedbackTone}`;
+  feedbackElement.classList.remove("is-hidden");
 
   currentScreen.feedback.forEach((line) => {
     const item = document.createElement("li");
@@ -32,7 +34,7 @@ function renderFeedback(currentScreen) {
 }
 
 function renderScreen(screenKey) {
-  const currentScreen = screen[screenKey];
+  const currentScreen = screens[screenKey];
 
   if (!currentScreen) {
     return;
