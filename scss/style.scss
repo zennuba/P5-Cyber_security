@@ -1,7 +1,5 @@
 @use "./partial" as *;
 
-/* 1. Reset / base */
-
 * {
   box-sizing: border-box;
 }
@@ -14,7 +12,7 @@ body {
 }
 
 p {
-  font-size: 16px;
+  font-size: 1rem;
   font-family: $font;
   color: $text-color;
 }
@@ -25,8 +23,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 500;
-  color: $text-color;
+  font-weight: 600;
+  color: $bg-color;
 }
 
 img {
@@ -38,78 +36,280 @@ img {
 button {
   font: inherit;
   cursor: pointer;
+  background-color: $accent-color;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.4rem;
+  font-weight: 700;
 }
 
-/* 3. Layout helpers */
+button:hover {
+  background-color: white;
+  color: $primary-color;
+}
 
-.is-hidden {
-  display: none;
+.screen-reader-text {
+  position: absolute;
+  left: -999px;
 }
 
 .screen {
   min-height: 100vh;
-  padding: 2rem;
-}
-/* 4. Navigation */
-.site-nav{
-    &__logo--icon {
-        width: 4rem;
-        height: auto;
-        display: block;
-    }
+  padding: 2rem 1rem;
 }
 
+.screen.is-hidden,
+.is-hidden {
+  display: none;
+}
 
+.site-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  position: relative;
 
-/* 5. Sections / components */
+  &__list {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 1rem;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    z-index: 10;
+    background-color: $primary-color;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+  }
 
-/*.hero,
-.consequence-card,
-.q-card__img,
-.end-card {
+  &__list.is-open {
+    display: flex;
+  }
+
+  &__link {
+    color: white;
+    text-decoration: none;
+  }
+
+  &__logo--icon {
+    width: 10rem;
+    height: auto;
+    display: block;
+  }
+
+  &__burger {
+    border: none;
+    background: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 0.25rem;
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 3rem 1rem;
+  background-color: $primary-color;
+}
+
+.hero__left .hero__right {
+  width: 100%;
+  text-align: center;
+}
+
+&__title {
+  max-width: 38rem;
+}
+
+&__logo-text,
+&__subtitle {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+&__logo-text {
+  margin-bottom: 1rem;
+  font-size: clamp(3rem, 12vw, 6rem);
+  font-weight: 800;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+&__subtitle {
+  color: white;
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+&__big-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-top: 1rem;
+  max-width: 600px;
+}
+
+&__big-text span {
+  color: $accent-color;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+}
+
+&__big-text .white {
+  color: white;
+}
+
+&__info-text {
+  max-width: 34rem;
+  line-height: 1.4;
+}
+
+&__text-box {
+  text-align: center;
+}
+
+.dynamic-screen {
+  place-items: center;
+  background-color: $primary-color;
+
+  &:not(.is-hidden) {
+    display: grid;
+  }
+
+  &__content {
+    width: min(100%, 28rem);
+  }
+
+  &__eyebrow {
+    margin: 0 0 1.5rem;
+    color: white;
+    font-size: 1.45rem;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__badge {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    padding: 0.35rem 0.75rem;
+    background-color: $accent-color;
+    color: $secondary-color;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    line-height: 1.05;
+  }
+
+  &__bodytext {
+    margin: 0 0 1rem;
+    color: white;
+    line-height: 1.45;
+  }
+
+  &__feedback {
+    min-height: 10rem;
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 3px solid white;
+    border-radius: 8px;
+    color: white;
+    line-height: 1.5;
+  }
+
+  &__feedback--good,
+  &__feedback--success {
+    border-color: $accent-color;
+  }
+
+  &__feedback--warning {
+    border-color: #ffcf5a;
+  }
+
+  &__feedback--danger {
+    border-color: #ff694f;
+  }
+
+  &__question {
+    margin: 2rem 0 1rem;
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  &__choices {
+    display: grid;
+    gap: 1rem;
+  }
+
+  &__btn {
+    width: 100%;
+    min-height: 4rem;
+    background-color: transparent;
+    border: 3px solid white;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+  }
+
+  &__btn:hover {
+    background-color: white;
+    color: $primary-color;
+  }
+}
+
+.learn-more:not(.is-hidden) {
   display: grid;
   place-items: center;
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 8px;
 }
 
-.q-card__img img {
-  max-width: 320px;
-}
-*/
-/* 6. Footer */
-/* 7. States */
-/* 8. Media queries */
+.learn-more {
+  &__content {
+    width: min(100%, 34rem);
+  }
 
-/* 2. Accessibility */
-/*Skip to main content code snippet fra:https://www.a11y-collective.com/blog//*
-skip-to-main-content/ */
-/*.screen-reader-text {
-  position: absolute; //Positions the link absolutely on the page, allowing it to be placed anywhere.
-  left: -9999px; //Moves the link far off-screen to the left, making it invisible to sighted users.
-  z-index: 999; //Sets a high z-index, ensuring that the link will be on top of other page elements if it becomes visible.
-  padding: 1em;
-  background-color: black;
-  color: white;
-  opacity: 0; //Sets the link's opacity to 0, making it fully transparent and invisible.
+  p {
+    color: white;
+    line-height: 1.5;
+  }
 }
 
-.screen-reader-text:focus {
-  left: 50%; // When the link receives focus (e.g., when a keyboard user tabs to it), it is repositioned horizontally to the centre of the screen.
-  transform: translateX(
-    -50%
-  ); //This centres the link horizontally by moving it back to the left by 50% of its own width.
-  opacity: 1; //The link's opacity is set to 1, making it fully visible.
+.footer {
+  display: none;
 }
 
-Incorporating Skip to Main Content Links for Better Website Accessibility - The A11Y Collective
-        Boost your website’s accessibility. Understand & implement 'Skip to Main Content' links for an inclusive web experience, better SEO & legal compliance*/
+@media (min-width: 768px) {
+  .screen {
+    padding: 4rem 2rem;
+  }
 
-img {
-  max-width: 180px;
-  width: 100%;
-  height: auto;
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }

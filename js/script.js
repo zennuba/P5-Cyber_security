@@ -1,39 +1,104 @@
-/*js/script-screens.js = data - tekst, valg og næste skærm. 
-js/script.js = logik - styrer klik, skærmskift og hvad der vises.
-
-VIGTIG: rigtig rækkefølge i HTML:
-<script src="js/script-screens.js" defer></script>
-<script src="js/script.js" defer></script>*/
-
 const allScreens = document.querySelectorAll(".screen");
+const burgerButton = document.querySelector(".site-nav__burger");
+const navList = document.querySelector(".site-nav__list");
+const titleElement = document.querySelector(".dynamic-screen__title");
+const bodyElement = document.querySelector(".dynamic-screen__bodytext");
+const choicesElement = document.querySelector(".dynamic-screen__choices");
+const feedbackElement = document.querySelector(".dynamic-screen__feedback");
+const badgeElement = document.querySelector(".dynamic-screen__badge");
 
 function showScreen(screenName) {
   allScreens.forEach((screen) => {
     const isCurrentScreen = screen.dataset.screen === screenName;
-
     screen.classList.toggle("is-hidden", !isCurrentScreen);
   });
 }
 
-const goToButtons = document.querySelectorAll("[data-go-to]");
+function renderFeedback(currentScreen) {
+  feedbackElement.innerHTML = "";
 
-goToButtons.forEach((button) => {
+  if (!currentScreen.feedback) {
+    feedbackElement.className = "dynamic-screen__feedback";
+    return;
+  }
+
+  feedbackElement.className = `dynamic-screen__feedback dynamic-screen__feedback--${currentScreen.feedbackTone}`;
+
+  currentScreen.feedback.forEach((line) => {
+    const item = document.createElement("li");
+    item.textContent = line;
+    feedbackElement.appendChild(item);
+  });
+}
+
+function renderScreen(screenKey) {
+  const currentScreen = screen[screenKey];
+
+  if (!currentScreen) {
+    return;
+  }
+
+  titleElement.textContent = currentScreen.title;
+  bodyElement.textContent = currentScreen.bodyText;
+  badgeElement.textContent = currentScreen.typeLabel;
+  choicesElement.innerHTML = "";
+
+  renderFeedback(currentScreen);
+
+  currentScreen.choices.forEach((choice) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = choice.text;
+    button.classList.add("dynamic-screen__btn");
+
+    button.addEventListener("click", () => {
+      if (screens[choice.next]) {
+        renderScreen(choice.next);
+        return;
+      }
+
+      showScreen(choice.next);
+    });
+
+    choicesElement.appendChild(button);
+  });
+
+  showScreen("dynamic");
+}
+
+document.querySelectorAll("[data-go-to]").forEach((button) => {
   button.addEventListener("click", () => {
-    showScreen(button.dataset.goTo);
+    const target = button.dataset.goTo;
+
+    if (screens[target]) {
+      renderScreen(target);
+      return;
+    }
+
+    showScreen(target);
   });
 });
 
-const answerButtons = document.querySelectorAll(".q-card__btn--choice");
-answerButtons.forEach((button, index) => {
-  console.log("knap får event", button);
+document.querySelectorAll(".site-nav__link").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const target = link.getAttribute("href")?.replace("#", "");
 
-  const choice = screens["case-smishing"].choices[index];
+    if (!target) {
+      return;
+    }
 
-  button.textContent = choice.text;
+    event.preventDefault();
+    navList?.classList.remove("is-open");
 
-  button.addEventListener("click", () => {
-    document.querySelector(".consequence-card__title").textContent =
-      choice.feedbackTitle;
-    showScreen(choice.next);
+    if (screens[target]) {
+      renderScreen(target);
+      return;
+    }
+
+    showScreen(target);
   });
+});
+
+burgerButton?.addEventListener("click", () => {
+  navList?.classList.toggle("is-open");
 });

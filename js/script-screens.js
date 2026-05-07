@@ -1,178 +1,204 @@
 const screens = {
+  "scenario-intro-smishing": {
+    typeLabel: "SMS",
+    title: "Ny eksamensdato",
+    bodyText:
+      "Du modtager en SMS fra et ukendt nummer. Beskeden siger, at din eksamensdato er ændret, og at du skal bekræfte en ny tid inden 24 timer.",
 
-/*------------- INTRO------------- */
+    choices: [
+      {
+        text: "Start udfordringen",
+        next: "scenario-01",
+      },    
+    ],
+  },
 
-    "scenario-intro-smishing": {
-        type: "intro",
-        title: "Smishing Alert!",
-        bodyText: "Du modtager en SMS fra et ukendt nummer.",
+  "scenario-01": {
+    typeLabel: "Hvad gør du?",
+    title: "Hvordan reagerer du?",
+    bodyText:
+      "SMS'en indeholder linket eksamens-kalender.info og beder dig bekræfte din deltagelse hurtigt, ellers mister du din plads.",
+    feedbackTone: "neutral",
+    feedback: [
+      "Afsenderen er ikke gemt som skolens officielle nummer",
+      "Beskeden presser dig til hurtig handling",
+      "Linket bruger ikke skolens normale domæne",
+    ],
+    choices: [
+      {
+        text: "Jeg klikker på linket",
+        next: "consequence-click",
+      },
+      {
+        text: "Jeg undersøger SMS'en først",
+        next: "consequence-check",
+      },
+      {
+        text: "Jeg ignorerer SMS'en",
+        next: "consequence-ignore",
+      },
+    ],
+  },
 
-        choices: [
-            {
-            text: "Start udfordringen",
-            next: "scenario-01",
-            },
-        ],
-    },
+  "consequence-click": {
+    typeLabel: "Konsekvens",
+    title: "Du lander på en bookingkalender",
+    bodyText:
+      "Siden ligner skolens login- og bookingsystem. Den beder dig vælge ny eksamensdato og logge ind med skolemail for at gemme ændringen.",
+    feedbackTone: "warning",
+    feedback: [
+      "Risiko: falsk side eller malware",
+      "Du bliver bedt om login på en ukendt side",
+      "Handling under tidspres øger fejlrisikoen",
+    ],
+    choices: [
+      {
+        text: "Jeg lukker siden uden at booke",
+        next: "conclusion-ignore-book",
+      },
+      {
+        text: "Jeg booker en ny eksamensdato",
+        next: "conclusion-book",
+      },
+      {
+        text: "Jeg kontakter skolen via officielle kanaler",
+        next: "conclusion-contact-it",
+      },
+    ],
+  },
 
-/*------------- RUNDE 1------------- */    
+  "consequence-check": {
+    typeLabel: "Undersøgelse",
+    title: "Du stopper og tjekker tegnene",
+    bodyText:
+      "Du kigger nærmere på afsender, link, sprog og tidspres. Beskeden ligner noget vigtigt, men flere detaljer passer ikke helt med skolens normale kommunikation.",
+    feedbackTone: "good",
+    feedback: [
+      "Godt: du handler ikke automatisk",
+      "Tjek afsender og domæne før klik",
+      "Brug skolens officielle kanaler ved tvivl",
+    ],
+    choices: [
+      {
+        text: "Jeg kontakter skolen via officielle kanaler",
+        next: "conclusion-contact-it",
+      },
+      {
+        text: "Jeg booker alligevel en ny dato",
+        next: "conclusion-book",
+      },
+      {
+        text: "Jeg ignorerer både SMS og kalender",
+        next: "conclusion-ignore-book",
+      },
+    ],
+  },
 
-    "scenario-01": {
-        type: "question",
-        title: "Eksamen aflyst",
-        bodyText: "Du modtager en SMS med besked om at ændre din eksamensdato da din eksamen er blevet aflyst.", 
-                
-        choices: [
-            {
-                text: "Jeg klikker på linket",
-                next: "consequence-click",
-            },
-            {
-                text: "Jeg undersøger SMSen",
-                next: "consequence-check",
-            },
-            {
-                text: "Jeg Ignorer SMSen",
-                next: "consequence-ignore",
-            },
-        ],
-    },
+  "consequence-ignore": {
+    typeLabel: "Konsekvens",
+    title: "Du ignorerer beskeden",
+    bodyText:
+      "Senere møder du en studiekammerat, som også har fået SMS'en. Han har allerede booket en ny tid og siger, at der kun er få tider tilbage.",
+    feedbackTone: "neutral",
+    feedback: [
+      "Socialt pres kan få beskeden til at virke mere troværdig",
+      "Det er stadig vigtigt at tjekke officielle kilder",
+      "Ignorering alene giver ikke sikker viden",
+    ],
+    choices: [
+      {
+        text: "Jeg booker en ny eksamensdato",
+        next: "conclusion-book",
+      },
+      {
+        text: "Jeg kontakter skolen via officielle kanaler",
+        next: "conclusion-contact-it",
+      },
+      {
+        text: "Jeg ignorerer stadig beskeden",
+        next: "conclusion-ignore-book",
+      },
+    ],
+  },
 
-/*------------- RUNDE 2 - click------------- */
+  "conclusion-book": {
+    typeLabel: "Resultat",
+    title: "Risiko: du gav siden tillid for hurtigt",
+    bodyText:
+      "Ved at booke eller logge ind via linket kan du have delt oplysninger med en falsk side. Det sikreste næste skridt er at ændre adgangskode og kontakte skolens IT eller administration.",
+    feedbackTone: "danger",
+    feedback: [
+      "Klik ikke videre på mistænkelige links",
+      "Skift adgangskode, hvis du har logget ind",
+      "Fortæl IT, hvad der er sket, så andre kan advares",
+    ],
+    choices: [
+      {
+        text: "Prøv smishing-udfordringen igen",
+        next: "scenario-intro-smishing",
+      },
+      {
+        text: "Gå tilbage til forsiden",
+        next: "hero",
+      },
+      {
+        text: "Læs mere om cybersikkerhed",
+        next: "learnMore",
+      },
+    ],
+  },
 
-    "consequence-click": {
-        type: "consequence",
-        title: "Book en ny eksamensdato",
-        bodyText: "Du kommer ind på siden nedenunder, som viser en kalender, hvor du kan booke en ny eksamens dato.",
-    
-        choices: [
-            {
-                text: "Jeg lukker ned og booker ikke en ny dato",
-                next: "conclusion-ignore-book",
-            },
-            {
-                text: "Jeg booker en ny eksamensdato",
-                next: "conclusion-book",
-            },
-            {   text: "Jeg kontakter mit uddannelsessted via de officielle kanaler, for at få SMSen og bookingkalenderen bekræftet. ",
-                next: "conclusion-contact-it",
-            },
-        ],
-    },
+  "conclusion-contact-it": {
+    typeLabel: "Resultat",
+    title: "Godt valg: du verificerede beskeden",
+    bodyText:
+      "Du brugte skolens officielle kanal i stedet for linket i SMS'en. Det beskytter både dine loginoplysninger og hjælper skolen med at advare andre studerende.",
+    feedbackTone: "success",
+    feedback: [
+      "Brug officielle hjemmesider, numre eller systemer",
+      "Rapporter mistænkelige beskeder",
+      "Tjek kilde, ikke kun indhold",
+    ],
+    choices: [
+      {
+        text: "Prøv smishing-udfordringen igen",
+        next: "scenario-intro-smishing",
+      },
+      {
+        text: "Gå tilbage til forsiden",
+        next: "hero",
+      },
+      {
+        text: "Læs mere om cybersikkerhed",
+        next: "learnMore",
+      },
+    ],
+  },
 
-/*------------- RUNDE 2 - check------------- */
-        "consequence-check": {
-        type: "consequence",
-        title: "Hvad kan man undersøge?",
-        bodyText: "Du kommer ind på siden nedenunder, som viser en kalender, hvor du kan booke en ny eksamens dato. Du undersøger den nærmere.",
-    
-        choices: [
-        {       text: "Jeg kontakter mit uddannelsessted via de officielle kanaler, for at få SMSen og bookingkalenderen bekræftet.",
-                next: "conclusion-contact-it",
-            },
-            {
-                text: "Jeg booker en ny eksamensdato",
-                next: "conclusion-book",
-            },
-            {
-                text: "Jeg lukker ned og booker ikke en ny dato",
-                next: "conclusion-ignore-book",
-            },
-        ],
-    },
-
-/*------------- RUNDE 2 - check------------- */
-
-        "consequence-ignore": {
-        type: "consequence",
-        title: "Var det en god ide at ignorere?",
-        bodyText: "Du valgte at ignorere SMSen. Nu møder du en kammerat fra din uddannelse, som har fået samme SMS og som har booket en ny tid. Han siger der ikke er mange datoer tilbage at vælge i mellem.",
-    
-            choices: [
-            
-                {
-                    text: "Jeg booker en ny eksamensdato",
-                    next: "conclusion-book",
-                },
-                {   text: "Jeg kontakter mit uddannelsessted via de officielle kanaler, for at få SMSen og bookingkalenderen bekræftet.",
-                    next: "conclusion-contact-it",
-                },
-                {
-                    text: "Jeg lukker ned og booker ikke en ny dato",
-                    next: "conclusion-ignore-book",
-                },
-            ],
-        },
-
-/*------------------ RUNDE 3 conclusion-book ------------- */
-
-        "conclusion-book": {
-            type: "conclusion",
-            title: "Dare-devil",
-            bodyText: "Du har valgt at kontakte booke en ny til i kalenderen. Måske er det smishing og du kan nu have udsat dig selv og andre.... find på" ,
-    
-            choices: [
-            
-                {
-                    text: "Prøve Smishing-udfordringen igen",
-                    next: "scenario-intro-smishing",
-                },
-                {   text: "Se alle udfordringer",
-                    next: "introMain",
-                },
-                {
-                    text: "Læs mere om cyber-Sikkerhed",
-                    next: "learnMore",
-                },
-            ],
-        },
-
-
-
-
-/*------------- RUNDE 3 - consequence-contact-it------------- */
-        "conclusion-contact-it": {
-            type: "conclusion",
-            title: "Better safe than....",
-            bodyText: "Du har valgt at kontakte IT på dit uddannelses sted. Det er en god beslutn ing fordi.... find på...",
-    
-            choices: [
-                {
-                    text: "Prøve Smishing-udfordringen igen",
-                    next: "scenario-intro-smishing",
-                },
-                {   text: "Se alle udfordringer",
-                    next: "introMain",
-                },
-                {
-                    text: "Læs mere om cyber-Sikkerhed",
-                    next: "learnMore",
-                },
-            ],
-        },  
-
-            
-/*------------- RUNDE 3 - consequence-ignore-book------------- */
-            "conclusion-ignore-book": { 
-                type: "conclusion",
-                title: "FOMO",
-                bodyText: "Du har valgt at ignorere kalender-bookingen. Det kan føles som det rigtige valg, men SMSen var faktisk rigtig.",
-        
-                choices: [
-                    {
-                        text: "Prøve Smishing-udfordringen igen",
-                        next: "scenario-intro-smishing",
-                    },
-                    {   text: "Se alle udfordringer",
-                        next: "introMain",
-                    },
-                    {
-                        text: "Læs mere om cyber-Sikkerhed",
-                        next: "learnMore",
-                    },
-                ],
-            },
-
-        
-        },          
-
+  "conclusion-ignore-book": {
+    typeLabel: "Resultat",
+    title: "Næsten godt: du klikkede ikke",
+    bodyText:
+      "Du undgik linket, men du fik ikke bekræftet, om beskeden var ægte. Den bedste reaktion er at undgå linket og selv kontakte skolen via en officiel kanal.",
+    feedbackTone: "warning",
+    feedback: [
+      "At ignorere kan være bedre end at klikke",
+      "Men vigtige beskeder bør verificeres",
+      "Søg selv informationen fra en troværdig kilde",
+    ],
+    choices: [
+      {
+        text: "Prøv smishing-udfordringen igen",
+        next: "scenario-intro-smishing",
+      },
+      {
+        text: "Gå tilbage til forsiden",
+        next: "hero",
+      },
+      {
+        text: "Læs mere om cybersikkerhed",
+        next: "learnMore",
+      },
+    ],
+  },
+};

@@ -3,8 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- fortælller ældre browsere at de skal benytte seneste rendering-mode - ikke vigtig mere, men god -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cybersikkerhed</title>
   <script src="js/script-screens.js" defer></script>
@@ -13,136 +12,108 @@
 </head>
 
 <body>
-  <a href="#main-content" class="screen-reader-text">Skip to main content
-  </a>
+  <a href="#main-content" class="screen-reader-text">Spring til indhold</a>
+
   <header>
     <nav class="site-nav" aria-label="site-navigation">
+      <a href="#hero" class="site-nav__link site-nav__link--logo">
+        <img src="imgs/hero-icon--white.png" alt="Cyber Hero logo" class="site-nav__logo--icon">
+      </a>
+      <button class="site-nav__burger" type="button" aria-label="Åbn navigation">☰</button>
       <ul class="site-nav__list">
         <li class="site-nav__item">
-          <a href="#" class="site-nav__link site-nav__link--logo">
-            <img src="imgs/smishing--nobg.png" alt="Cyber Hero logo" class="site-nav__logo--icon" </a>
+          <a href="#learnMore" class="site-nav__link">Alt om cybersikkerhed</a>
         </li>
         <li class="site-nav__item">
-          <a href="#Cyber Sikkerhed" class="site-nav__link">Alt om Cybersikkerhed</a>
-        </li>
-        <li class="site-nav__item">
-          <a href="#Kontakt" class="site-nav__link">Kontakt</a>
+          <a href="#scenario-intro-smishing" class="site-nav__link">Smishing</a>
         </li>
       </ul>
     </nav>
   </header>
-  <main id="main-content" aria-label="main-content">
-    <section class="screen hero" data-screen="hero">
-      <div class="hero__title">
-        <h1 class="hero__logo-text">
-          <span>Cyber</span>
-          <span>Hero</span>
-        </h1>
-        <h2 class="hero__subtitle">Træning i CyberSikkerhed</h2>
 
-        <div class="hero__info">
-          <h3 class="hero__info-title">Få styr på cyber sikkerhed inden du skal ud og finde job - det betaler sig</h3>
-          <h4 class="hero__info-text">Hvad skal du være opmærksom på, få redskaber til at agere og blive CYBER HERO på
-            din kommende arbejdsplads
-          </h4>
-        </div>
+  <main id="main-content" aria-label="main-content">
+      <section class="screen hero" data-screen="hero">
+      
+        <div class="hero__title">
+          <h1 class="hero__logo-text">
+            <span>CYBER</span><br>
+            <span>HERO</span>
+          </h1>
+          <h2 class="hero__subtitle">Træning i cybersikkerhed</h2>
       </div>
-      <button class="hero__btn" data-go-to="case-smishing">Smishing-øvelsen</button>
+      
+      <div class="hero__line"></div>
+
+      <div class="hero__image">
+      <img src="imgs/hero_battles.png" alt="Cyber threats illustration">
+      </div>
+
+      <div class="hero__textbox">
+        <h3 class="hero__big-text">
+        <span>Kan du spotte faresignalerne?</span>
+      </h3>
+      <p class="hero__info-text"> Brug din viden, lær at spotte de nyeste trusler og bliv CYBER HERO på din kommende arbejdsplads. Der er brug for dig!</p>
+      </div>
+        <div class="hero__line"></div>
+      <h4 class="hero__info-text">Vælg en udfordring</h4>
+
+      <section class="threat-menu" aria-label="Cybertrusler">
+      </section>
     </section>
-    <section class="screen card is-hidden" data-screen="case-intro">
-      <div class="card__img">
-        <img src="imgs/logo--blue-bg.png" alt="CyberHero-logo">
+
+         <button class="threat-card" 
+          type="button" data-go-to="scenario-intro-smishing">
+        <img src="imgs/threat--smishing.png" alt="Smishing illustration"></button>
+        
+        <button class="threat-card" 
+          type="button" data-go-to="scenario-intro-phishing">
+        <img src="imgs/threat--phishing.png" alt="Phishing illustration"></button>
+
+                <button class="threat-card" 
+          type="button" data-go-to="scenario-intro-cloud">
+        <img src="imgs/threat--cloud.png" alt="Trussel Cloud-filer illustration"></button>
+
+                <button class="threat-card" 
+          type="button" data-go-to="scenario-intro-router">
+        <img src="imgs/threat--router.png" alt="threat router illustration"></button>
+
+      </section>
+       
+
+</section>
+        
       </div>
-      <div class="card__header">
-        <h2 class="card__title">Smishing Alert1</h2>
-        <h3 class="card__subtitle">Du modtager en sms fra ukendt nummer med besked om at ændre din eksamensdato</h3>
-        <div class="card__content">
-          <h3 class="card__subtitle">Dette kan du efter øvelsen:</h3>
-          <ul class="card__list">
-            <li class="card__item">genkende smishing</li>
-            <li class="card__item">agere med ro i maven</li>
-            <li class="card__item">reagere hvis uheldet sker</li>
-          </ul>
-          <h4 class="card__info">Målgruppe: Studerende</h4>
-          <h4 class="card__info">Varighed: 3-5 min.</h4>
-          <button class="card__btn card__btn--case" data-go-to="case-smishing">START smishing-øvelsen</button>
-        </div>
-      </div>
+<!--       <button class="hero__btn" type="button" data-go-to="scenario-intro-smishing">Smishing-øvelsen</button>
     </section>
-    <section class="screen q-card is-hidden" data-screen="case-smishing">
-      <div class="q-card__img">
-        <img src="imgs/logo--black-bg.png" alt="Smishing illustration">
-      </div>
-      <div class="q-card__header">
-        <h2 class="q-card__title">Smishing Alert</h2>
-        <h3 class="q-card__subtitle"></h3>
-        <p class="q-card__bodytext">Du modtager en sms fra ukendt nummer med beskeden:</p>
-      </div>
-      <div class="q-card__img">
-        <img src="imgs/logo--green-bg.png" alt="Smishing illustration">
-      </div>
-      <div class="q-card__content">
-        <h3 class="q-card__subtitle"></h3>
-        <h2 class="q-card__question">Hvordan reagerer du?</h2>
-        <button class="q-card__btn q-card__btn--choice" data-action="click">check</button>
-        <button class="q-card__btn q-card__btn--choice" data-action="click">ignore</button>
-        <button class="q-card__btn q-card__btn--choice" data-action="click">click</button>
-      </div>
-    </section>
-    <section class="screen consequence-card is-hidden" data-screen="feedback">
-      <div class="consequence-card__img">
-        <img src="imgs/logo--no-bg.png" alt="Smishing illustration">
-      </div>
-      <div class="consequence-card__header">
-        <h2 class="consequence-card__title">Smishing Alerttertete</h2>
-        <h3 class="consequence-card__subtitle">test tes test</h3>
-        <p class="consequence-card__bodytext">Du modtager en sms fra ukendt nummer med beskeden:</p>
-      </div>
-      <div class="consequence-card__img">
-        <img src="imgs/smishing--nobg.png" alt="Smishing illustration">
-      </div>
-      <div class="consequence-card__content">
-        <h3 class="consequence-card__subtitle"></h3>
-        <h2 class="consequence-card__question">Hvordan reagerer du?</h2>
-        <button class="consequence-card__btn consequence-card__btn--question" data-action="check">Svar click</button>
-        <button class="consequence-card__btn consequence-card__btn--question" data-action="check">Svar ignore</button>
-        <button class="consequence-card__btn consequence-card__btn--question" data-action="check">Svar check</button>
+
+    <section class="screen dynamic-screen is-hidden" data-screen="dynamic">
+      <div class="dynamic-screen__content">
+        <p class="dynamic-screen__eyebrow">Cyber Hero</p>
+        <span class="dynamic-screen__badge"></span>
+        <h2 class="dynamic-screen__title"></h2>
+        <p class="dynamic-screen__bodytext"></p>
+        <ul class="dynamic-screen__feedback" aria-label="Feedback"></ul>
+        <h3 class="dynamic-screen__question">Hvad gør du?</h3>
+        <div class="dynamic-screen__choices"></div>
       </div>
     </section>
-    <section class="screen end-card is-hidden" data-screen="end">
-      <div class="end-card__header">
-        <h2 class="end-card__title">Du er nu Cyber-Hero</h2>
-        <h3 class="end-card__subtitle">Du har nu gennemført Smishing-øvelsen og kan nu:</h3>
-        <h3 class="end-card__subtitle">Dette kan du efter øvelsen:</h3>
-        <ul class="end-card__list">
-          <li class="end-card__item">genkende smishing</li>
-          <li class="end-card__item">agere med ro i maven</li>
-          <li class="end-card__item">reagere hvis uheldet sker</li>
-        </ul>
-      </div>
-      <div class="end-card__body">
-        <p class="end-card__bodytext">Du modtager en sms fra ukendt nummer med beskeden:</p>
-        <div class="end-card__img">
-          <img src="imgs/ch-finish-shield-ai.png" alt="Smishing illustration">
-        </div>
-      </div>
-    </section>
-    <section class="screen next-card is-hidden" data-screen="next">
-      <div class="next-card__content">
-        <h3 class="next-card__subtitle"></h3>
-        <h2 class="next-card__question">Hvad kan du nu?</h2>
-        <button class="next-card__btn next-card__btn--next" data-action="check">Svar click</button>
-        <button class="next-card__btn next-card__btn--next" data-action="check">Svar ignore</button>
-        <button class="next-card__btn next-card__btn--next" data-action="check">Svar check</button>
+-->
+    <section class="screen learn-more is-hidden" data-screen="learnMore">
+      <div class="learn-more__content">
+        <h2>Læs mere om cybersikkerhed</h2>
+        <p>
+          Stop op, tjek afsenderen og gå selv til den officielle kanal, når en besked beder dig handle hurtigt.
+          Det er især vigtigt, hvis du bliver bedt om at logge ind, betale eller bekræfte personlige oplysninger.
+        </p>
+        <button type="button" data-go-to="hero">Tilbage til forsiden</button>
       </div>
     </section>
   </main>
-  <section class="screen introMain is-hidden" data-screen="introMain">Alle udfordringer</section>
-  <section class="screen learnMore is-hidden" data-screen="learnMore">Lær mere om Cyber Sikkerhed</section>
+
   <section class="footer">
     <div class="footer__logobox">
       <div class="footer__logo-img">
-        <img src="imgs/ch-finish-shield-ai.png" alt="logo">
+        <img src="imgs/ch-finish-shield-ai.png" alt="Cyber Hero skjold">
       </div>
     </div>
   </section>
