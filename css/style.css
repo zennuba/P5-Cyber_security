@@ -51,6 +51,12 @@ button {
 }
 
 /* 4. Navigation */
+.site-nav__logo--icon {
+  width: 4rem;
+  height: auto;
+  display: block;
+}
+
 /* 5. Sections / components */
 /*.hero,
 .consequence-card,

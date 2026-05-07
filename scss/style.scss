@@ -51,6 +51,16 @@ button {
   padding: 2rem;
 }
 /* 4. Navigation */
+.site-nav{
+    &__logo--icon {
+        width: 4rem;
+        height: auto;
+        display: block;
+    }
+}
+
+
+
 /* 5. Sections / components */
 
 /*.hero,
