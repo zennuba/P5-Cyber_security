@@ -9,13 +9,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: SF Pro Display, Source Code Pro, Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #515c84;
+  background-color: #362F49;
 }
 
 p {
   font-size: 1rem;
   font-family: SF Pro Display, Source Code Pro, Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
-  color: #1f2430;
+  color: #e5e7eb;
 }
 
 h1,
@@ -25,7 +25,7 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-  color: #f5f7fa;
+  color: #f9fafb;
 }
 
 img {
@@ -37,8 +37,8 @@ img {
 button {
   font: inherit;
   cursor: pointer;
-  background-color: #5fd3bc;
-  color: white;
+  background-color: #D8FFA7;
+  color: #362F49;
   border: none;
   border-radius: 999px;
   padding: 0.8rem 1.4rem;
@@ -47,7 +47,7 @@ button {
 
 button:hover {
   background-color: white;
-  color: #515c84;
+  color: #362F49;
 }
 
 .screen-reader-text {
@@ -63,6 +63,11 @@ button:hover {
 .screen.is-hidden,
 .is-hidden {
   display: none;
+}
+
+.site-header {
+  background-color: #030712;
+  border-bottom: 1px solid #D8FFA7;
 }
 
 .site-nav {
@@ -84,7 +89,7 @@ button:hover {
   top: 100%;
   right: 1rem;
   z-index: 10;
-  background-color: #515c84;
+  background-color: #362F49;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
 }
@@ -95,15 +100,19 @@ button:hover {
   color: white;
   text-decoration: none;
 }
-.site-nav__logo--icon {
-  width: 10rem;
-  height: auto;
-  display: block;
+.site-nav__logo {
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.site-nav__logo span {
+  color: #D8FFA7;
 }
 .site-nav__burger {
   border: none;
   background: none;
-  color: #ffffff;
+  color: #D8FFA7;
   cursor: pointer;
   font-size: 2rem;
   padding: 0.25rem;
@@ -114,39 +123,35 @@ button:hover {
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem 1rem 4rem;
-  background-color: #515c84;
+  background-color: #362F49;
 }
 .hero__title {
   text-align: center;
 }
-.hero__logo-text, .hero__subtitle {
+.hero__subtitle, .hero__logo-text {
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   text-align: center;
 }
-.hero__logo-text {
-  margin: 0;
-  font-size: clamp(3rem, 12vw, 6rem);
-  font-weight: 800;
-  line-height: 0.9;
-  text-transform: uppercase;
-}
 .hero__subtitle {
   color: white;
   font-size: clamp(1.2rem, 5vw, 1.8rem);
   font-weight: 400;
-  margin: 0;
+  text-align: center;
 }
 .hero__line {
   width: 80%;
   height: 3px;
   margin: 0 auto;
-  background-color: #5fd3bc;
+  background-color: #D8FFA7;
 }
 .hero__image img {
   width: 100%;
+  max-height: 22rem;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 8px;
 }
 .hero__textbox {
@@ -156,21 +161,35 @@ button:hover {
   margin: 0 0 0.75rem;
   font-weight: 800;
   line-height: 1.1;
+  text-align: center;
 }
 .hero__big-text span {
-  color: #5fd3bc;
+  color: #D8FFA7;
   font-size: clamp(2rem, 7vw, 3.5rem);
+}
+.hero__actions {
+  display: flex;
+  justify-content: center;
+}
+.hero__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .hero__info-text {
   margin: 0;
   color: white;
   line-height: 1.45;
+  text-align: center;
 }
 
+/*
 .threat-menu {
   display: grid;
-  gap: 1rem;
-  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  width: min(100%, 18rem);
+  margin: 0 auto;
 }
 
 .threat-card {
@@ -180,19 +199,22 @@ button:hover {
   background: none;
   border: 3px solid white;
   border-radius: 8px;
-  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .threat-card img {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   transition: transform 180ms ease;
 }
 
 .threat-card:hover,
 .threat-card:focus-visible {
-  border-color: #5fd3bc;
+  border-color: $accent-color;
   box-shadow: 0 0 0 4px rgba(95, 211, 188, 0.2);
   transform: translateY(-2px);
 }
@@ -203,13 +225,13 @@ button:hover {
 }
 
 .threat-card:focus-visible {
-  outline: 3px solid white;
-  outline-offset: 4px;
+  outline: 2px solid rgb(0, 0, 0);
+  outline-offset: 5px;
 }
-
+*/
 .dynamic-screen {
   place-items: center;
-  background-color: #515c84;
+  background-color: #362F49;
 }
 .dynamic-screen:not(.is-hidden) {
   display: grid;
@@ -229,8 +251,8 @@ button:hover {
   display: inline-flex;
   margin-bottom: 1rem;
   padding: 0.35rem 0.75rem;
-  background-color: #5fd3bc;
-  color: #000000;
+  background-color: #D8FFA7;
+  color: #030712;
   border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 800;
@@ -257,7 +279,7 @@ button:hover {
   line-height: 1.5;
 }
 .dynamic-screen__feedback--good, .dynamic-screen__feedback--success {
-  border-color: #5fd3bc;
+  border-color: #22c55e;
 }
 .dynamic-screen__feedback--warning {
   border-color: #ffcf5a;
@@ -284,7 +306,7 @@ button:hover {
 }
 .dynamic-screen__btn:hover {
   background-color: white;
-  color: #515c84;
+  color: #362F49;
 }
 
 .learn-more:not(.is-hidden) {
@@ -307,6 +329,23 @@ button:hover {
 @media (min-width: 768px) {
   .screen {
     padding: 4rem 2rem;
+  }
+  .hero {
+    align-items: center;
+    padding: 4rem 2rem 5rem;
+  }
+  .hero__title, .hero__textbox {
+    width: min(100%, 60rem);
+  }
+  .hero__image {
+    width: min(100%, 70rem);
+  }
+  .hero__image img {
+    max-height: 24rem;
+  }
+  .hero__big-text, .hero__info-text,
+  .hero h4 {
+    text-align: center;
   }
   .cards {
     display: grid;

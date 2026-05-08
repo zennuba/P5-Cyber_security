@@ -6,6 +6,8 @@ const bodyElement = document.querySelector(".dynamic-screen__bodytext");
 const choicesElement = document.querySelector(".dynamic-screen__choices");
 const feedbackElement = document.querySelector(".dynamic-screen__feedback");
 const badgeElement = document.querySelector(".dynamic-screen__badge");
+const imageWrapElement = document.querySelector(".dynamic-screen__image");
+const imageElement = document.querySelector(".dynamic-screen__image img");
 
 function showScreen(screenName) {
   allScreens.forEach((screen) => {
@@ -43,6 +45,17 @@ function renderScreen(screenKey) {
   titleElement.textContent = currentScreen.title;
   bodyElement.textContent = currentScreen.bodyText;
   badgeElement.textContent = currentScreen.typeLabel;
+
+  if (currentScreen.image) {
+    imageElement.src = currentScreen.image;
+    imageElement.alt = currentScreen.imageAlt || "";
+    imageWrapElement.classList.remove("is-hidden");
+  } else {
+    imageElement.removeAttribute("src");
+    imageElement.alt = "";
+    imageWrapElement.classList.add("is-hidden");
+  }
+
   choicesElement.innerHTML = "";
 
   renderFeedback(currentScreen);

@@ -14,12 +14,14 @@
 <body>
   <a href="#main-content" class="screen-reader-text">Spring til indhold</a>
 
-  <header>
-    <nav class="site-nav" aria-label="site-navigation">
-      <a href="#hero" class="site-nav__link site-nav__link--logo">
-        <img src="imgs/hero-icon--white.png" alt="Cyber Hero logo" class="site-nav__logo--icon">
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Hovednavigation">
+      <a href="#hero" class="site-nav__logo">
+        CYBER<span>HERO</span>
       </a>
+
       <button class="site-nav__burger" type="button" aria-label="Åbn navigation">☰</button>
+
       <ul class="site-nav__list">
         <li class="site-nav__item">
           <a href="#learnMore" class="site-nav__link">Alt om cybersikkerhed</a>
@@ -32,14 +34,13 @@
   </header>
 
   <main id="main-content" aria-label="main-content">
-    <section class="screen hero" data-screen="hero">
+    <section class="screen hero" id="hero" data-screen="hero">
+
       <div class="hero__title">
-        <h1 class="hero__logo-text">
-          <span>CYBER</span><br>
-          <span>HERO</span>
-        </h1>
+        <h1 class="hero__logo-text">CYBER HERO</h1>
         <h2 class="hero__subtitle">Træning i cybersikkerhed</h2>
       </div>
+
 
       <div class="hero__line"></div>
 
@@ -52,15 +53,25 @@
           <span>Kan du spotte faresignalerne?</span>
         </h3>
         <p class="hero__info-text">
-          Brug din viden, lær at spotte de nyeste trusler og bliv CYBER HERO på din kommende arbejdsplads.
-          Der er brug for dig!
+          Digital svindel er et hverdagsproblem. 76% har oplevet forsøg på svindel, og 22% er blevet snydt. Brug din
+          viden, lær at spotte de nyeste trusler, og bliv CYBER HERO på din kommende arbejdsplads.
+
+
         </p>
       </div>
 
       <div class="hero__line"></div>
-      <h4 class="hero__info-text">Vælg en udfordring</h4>
 
-      <section class="threat-menu" aria-label="Cybertrusler">
+
+      <button class="hero__button" type="button" data-go-to="scenario-intro-smishing">
+        Start smishing
+      </button>
+
+
+      <!-- Nice to have: menu til hvis jeg skulle lave flere - lavede almindelig knap i stedet for 
+       <h4 class="hero__info-text">Vælg en udfordring</h4>
+      <div class="hero__actions">
+        <div class="hero__actions"><section class="threat-menu" aria-label="Cybertrusler">
         <button class="threat-card" type="button" data-go-to="scenario-intro-smishing">
           <img src="imgs/threat--smishing.png" alt="Smishing illustration">
         </button>
@@ -75,21 +86,37 @@
 
         <button class="threat-card" type="button" data-go-to="scenario-intro-router">
           <img src="imgs/threat--router.png" alt="Router illustration">
-        </button>
-      </section>
+        </button>-->
+
+
+    </section>
     </section>
 
     <section class="screen dynamic-screen is-hidden" data-screen="dynamic">
       <div class="dynamic-screen__content">
         <p class="dynamic-screen__eyebrow">Cyber Hero</p>
         <span class="dynamic-screen__badge"></span>
+        <ul class="dynamic-screen__feedback" aria-label="Feedback"></ul>
+
         <h2 class="dynamic-screen__title"></h2>
         <p class="dynamic-screen__bodytext"></p>
-        <ul class="dynamic-screen__feedback" aria-label="Feedback"></ul>
+
+
+
+        <div class="dynamic-screen__image is-hidden">
+          <img src="imgs/sms.png" alt="Smishing SMS">
+        </div>
+
         <h3 class="dynamic-screen__question">Hvad gør du?</h3>
         <div class="dynamic-screen__choices"></div>
       </div>
     </section>
+
+
+
+
+    2:25 AM
+
 
     <section class="screen learn-more is-hidden" data-screen="learnMore">
       <div class="learn-more__content">

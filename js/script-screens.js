@@ -3,7 +3,9 @@ const screens = {
     typeLabel: "E-mail",
     title: "Phishing",
     bodyText:
-      "Du modtager en mail, der ligner den kommer fra en kendt tjeneste. Scenariet er ikke bygget færdigt endnu.",
+      "Du modtager en mail, der virker officiel og beder dig handle hurtigt. Scenariet er endnu ikke færdigudviklet.",
+    image: "imgs/smishing.png",
+    imageAlt: "Phishing illustration",
     choices: [
       {
         text: "Tilbage til forsiden",
@@ -16,7 +18,7 @@ const screens = {
     typeLabel: "Cloud",
     title: "Cloud-filer",
     bodyText:
-      "Du skal vurdere, hvordan filer deles sikkert i skyen. Scenariet er ikke bygget færdigt endnu.",
+      "Du skal vurdere, hvordan filer kan deles sikkert i skyen. Scenariet er endnu ikke færdigudviklet.",
     choices: [
       {
         text: "Tilbage til forsiden",
@@ -29,7 +31,7 @@ const screens = {
     typeLabel: "Netværk",
     title: "Usikkert netværk",
     bodyText:
-      "Du skal tage stilling til et netværk, der virker usikkert. Scenariet er ikke bygget færdigt endnu.",
+      "Du opdager tegn på et usikkert netværk og skal vurdere risikoen. Scenariet er endnu ikke færdigudviklet.",
     choices: [
       {
         text: "Tilbage til forsiden",
@@ -39,30 +41,26 @@ const screens = {
   },
 
   "scenario-intro-smishing": {
-    typeLabel: "SMS",
-    title: "Ny eksamensdato",
+    typeLabel: "INFO",
+    title: "Hvad er smishing?",
     bodyText:
-      "Du modtager en SMS fra et ukendt nummer. Beskeden siger, at din eksamensdato er ændret, og at du skal bekræfte en ny tid inden 24 timer.",
+      "Smishing er digital svindel via SMS. Beskederne kan ligne officielle beskeder fra fx en skole, bank, fragtfirma eller myndighed. Målet er ofte at få modtageren til at handle hurtigt, klikke på et link eller dele oplysninger. I denne udfordring har du mulighed for at afprøve et scenarie, hvor du skal du vurdere hvad du selv ville gøre i en realistisk hverdagssituation. Det er eksamenstid, og hverdagen er præget af deadlines, afleveringer og beskeder fra forskellige digitale systemer. Midt i en travl dag modtager du en SMS om din eksamensbooking.",
 
     choices: [
       {
         text: "Start udfordringen",
         next: "scenario-01",
-      },    
+      },
     ],
   },
 
   "scenario-01": {
-    typeLabel: "Hvad gør du?",
-    title: "Hvordan reagerer du?",
+    typeLabel: "SMS",
+    title: "En vigtig SMS",
     bodyText:
-      "SMS'en indeholder linket eksamens-kalender.info og beder dig bekræfte din deltagelse hurtigt, ellers mister du din plads.",
-    feedbackTone: "neutral",
-    feedback: [
-      "Afsenderen er ikke gemt som skolens officielle nummer",
-      "Beskeden presser dig til hurtig handling",
-      "Linket bruger ikke skolens normale domæne",
-    ],
+      "Det er eksamenstid, og hverdagen er præget af deadlines, afleveringer og beskeder fra forskellige digitale systemer. Midt i en travl dag modtager du en SMS om din eksamensbooking.",
+    image: "imgs/sms.png",
+    imageAlt: "Illustration af SMS-besked",
     choices: [
       {
         text: "Jeg klikker på linket",
@@ -81,18 +79,20 @@ const screens = {
 
   "consequence-click": {
     typeLabel: "Konsekvens",
-    title: "Du lander på en bookingkalender",
+    title: "Siden åbnes",
     bodyText:
-      "Siden ligner skolens login- og bookingsystem. Den beder dig vælge ny eksamensdato og logge ind med skolemail for at gemme ændringen.",
+      "Siden ligner skolens bookingsystem og beder dig logge ind med skolemail for at gemme den nye eksamensdato.",
+    image: "imgs/fake-calendar.png",
+    imageAlt: "Fiktiv side med login og eksamensbooking",
     feedbackTone: "warning",
     feedback: [
-      "Risiko: falsk side eller malware",
-      "Du bliver bedt om login på en ukendt side",
-      "Handling under tidspres øger fejlrisikoen",
+      "Ukendte links kan føre til falske login-sider",
+      "Loginoplysninger kan blive stjålet",
+      "Tidspres øger risikoen for fejlvurderinger",
     ],
     choices: [
       {
-        text: "Jeg lukker siden uden at booke",
+        text: "Jeg lukker siden",
         next: "conclusion-ignore-book",
       },
       {
@@ -100,7 +100,7 @@ const screens = {
         next: "conclusion-book",
       },
       {
-        text: "Jeg kontakter skolen via officielle kanaler",
+        text: "Jeg kontakter skolen officielt",
         next: "conclusion-contact-it",
       },
     ],
@@ -108,18 +108,18 @@ const screens = {
 
   "consequence-check": {
     typeLabel: "Undersøgelse",
-    title: "Du stopper og tjekker tegnene",
+    title: "Beskeden undersøges",
     bodyText:
-      "Du kigger nærmere på afsender, link, sprog og tidspres. Beskeden ligner noget vigtigt, men flere detaljer passer ikke helt med skolens normale kommunikation.",
+      "Du tjekker afsender, link og sprog. Flere detaljer virker mistænkelige og matcher ikke skolens normale kommunikation.",
     feedbackTone: "good",
     feedback: [
-      "Godt: du handler ikke automatisk",
-      "Tjek afsender og domæne før klik",
-      "Brug skolens officielle kanaler ved tvivl",
+      "Beskeden undersøges før handling",
+      "Afsender og domæne bør altid tjekkes",
+      "Officielle kanaler er vigtigst ved tvivl",
     ],
     choices: [
       {
-        text: "Jeg kontakter skolen via officielle kanaler",
+        text: "Jeg kontakter skolen officielt",
         next: "conclusion-contact-it",
       },
       {
@@ -127,7 +127,7 @@ const screens = {
         next: "conclusion-book",
       },
       {
-        text: "Jeg ignorerer både SMS og kalender",
+        text: "Jeg ignorerer beskeden",
         next: "conclusion-ignore-book",
       },
     ],
@@ -135,14 +135,14 @@ const screens = {
 
   "consequence-ignore": {
     typeLabel: "Konsekvens",
-    title: "Du ignorerer beskeden",
+    title: "Beskeden ignoreres",
     bodyText:
-      "Senere møder du en studiekammerat, som også har fået SMS'en. Han har allerede booket en ny tid og siger, at der kun er få tider tilbage.",
+      "Senere fortæller en studiekammerat, at den samme SMS også er blevet modtaget og allerede brugt til at booke en ny eksamensdato.",
     feedbackTone: "neutral",
     feedback: [
-      "Socialt pres kan få beskeden til at virke mere troværdig",
-      "Det er stadig vigtigt at tjekke officielle kilder",
-      "Ignorering alene giver ikke sikker viden",
+      "Socialt pres kan påvirke beslutninger",
+      "Information bør verificeres via officielle kilder",
+      "At ignorere beskeden løser ikke nødvendigvis problemet",
     ],
     choices: [
       {
@@ -150,7 +150,7 @@ const screens = {
         next: "conclusion-book",
       },
       {
-        text: "Jeg kontakter skolen via officielle kanaler",
+        text: "Jeg kontakter skolen officielt",
         next: "conclusion-contact-it",
       },
       {
@@ -162,22 +162,22 @@ const screens = {
 
   "conclusion-book": {
     typeLabel: "Resultat",
-    title: "Risiko: du gav siden tillid for hurtigt",
+    title: "Risiko for falsk side",
     bodyText:
-      "Ved at booke eller logge ind via linket kan du have delt oplysninger med en falsk side. Det sikreste næste skridt er at ændre adgangskode og kontakte skolens IT eller administration.",
+      "Ved at bruge linket kan loginoplysninger være blevet delt med en falsk side. Det sikreste næste skridt er at ændre adgangskode og kontakte skolens IT-support.",
     feedbackTone: "danger",
     feedback: [
-      "Klik ikke videre på mistænkelige links",
-      "Skift adgangskode, hvis du har logget ind",
-      "Fortæl IT, hvad der er sket, så andre kan advares",
+      "Personlige beskeder virker ofte mere troværdige",
+      "Tidspres bruges ofte i digital svindel",
+      "Adgangskoder bør ændres ved mistanke",
     ],
     choices: [
       {
-        text: "Prøv smishing-udfordringen igen",
+        text: "Jeg prøver udfordringen igen",
         next: "scenario-intro-smishing",
       },
       {
-        text: "Gå tilbage til forsiden",
+        text: "Tilbage til forsiden",
         next: "hero",
       },
       {
@@ -189,22 +189,22 @@ const screens = {
 
   "conclusion-contact-it": {
     typeLabel: "Resultat",
-    title: "Godt valg: du verificerede beskeden",
+    title: "God beslutning",
     bodyText:
-      "Du brugte skolens officielle kanal i stedet for linket i SMS'en. Det beskytter både dine loginoplysninger og hjælper skolen med at advare andre studerende.",
+      "Beskeden verificeres via officielle kanaler i stedet for linket i SMS'en. Det reducerer risikoen for at dele oplysninger med falske sider.",
     feedbackTone: "success",
     feedback: [
-      "Brug officielle hjemmesider, numre eller systemer",
-      "Rapporter mistænkelige beskeder",
-      "Tjek kilde, ikke kun indhold",
+      "Officielle hjemmesider og systemer er sikrest",
+      "Mistænkelige beskeder bør rapporteres",
+      "Kilden bag beskeden bør altid vurderes",
     ],
     choices: [
       {
-        text: "Prøv smishing-udfordringen igen",
+        text: "Jeg prøver udfordringen igen",
         next: "scenario-intro-smishing",
       },
       {
-        text: "Gå tilbage til forsiden",
+        text: "Tilbage til forsiden",
         next: "hero",
       },
       {
@@ -216,22 +216,22 @@ const screens = {
 
   "conclusion-ignore-book": {
     typeLabel: "Resultat",
-    title: "Næsten godt: du klikkede ikke",
+    title: "Næsten sikkert",
     bodyText:
-      "Du undgik linket, men du fik ikke bekræftet, om beskeden var ægte. Den bedste reaktion er at undgå linket og selv kontakte skolen via en officiel kanal.",
+      "Linket blev undgået, men beskeden blev ikke verificeret. Den sikreste løsning er at kontakte skolen direkte via officielle kanaler.",
     feedbackTone: "warning",
     feedback: [
-      "At ignorere kan være bedre end at klikke",
-      "Men vigtige beskeder bør verificeres",
-      "Søg selv informationen fra en troværdig kilde",
+      "At undgå linket reducerer risikoen",
+      "Vigtige beskeder bør verificeres",
+      "Troværdige kilder bør bruges til kontrol",
     ],
     choices: [
       {
-        text: "Prøv smishing-udfordringen igen",
+        text: "Jeg prøver udfordringen igen",
         next: "scenario-intro-smishing",
       },
       {
-        text: "Gå tilbage til forsiden",
+        text: "Tilbage til forsiden",
         next: "hero",
       },
       {

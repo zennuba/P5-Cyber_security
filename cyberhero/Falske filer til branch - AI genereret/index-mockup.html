@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>EksamenBooking – Akademiuddannelser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f4f6;
+      color: #222;
+    }
+
+    /* Topbar */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #dcdce0;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-svg {
+      width: 42px;
+      height: 42px;
+    }
+
+    .search-bar input {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 260px;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    /* Category bar */
+    .category-bar {
+      background: #4b4b6f;
+      color: white;
+      padding: 20px 24px;
+      display: flex;
+      gap: 32px;
+      font-size: 14px;
+    }
+
+    .category-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0.9;
+    }
+
+    .category-item:hover {
+      opacity: 1;
+    }
+
+    .category-icon {
+      width: 28px;
+      height: 28px;
+      margin-bottom: 6px;
+    }
+
+    /* Main layout */
+    main {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 0 24px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: #555;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 20px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    label {
+      font-size: 13px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: #4a3a75;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .btn-primary:hover {
+      background: #3d2f63;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .warning {
+      background: #fff7e6;
+      border: 1px solid #f0c36d;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 16px;
+      font-size: 12px;
+      color: #7a5a00;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #777;
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo-area">
+    <!-- Fiktivt ministerielt emblem -->
+    <svg class="logo-svg" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" fill="#4b4b6f"/>
+      <path d="M50 20 L70 50 L50 80 L30 50 Z" fill="white"/>
+    </svg>
+
+    <strong>EksamenBooking – Akademiuddannelser</strong>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Søg efter fag, modul eller eksamen">
+  </div>
+
+  <div class="top-actions">
+    <span>Kontakt</span>
+    <span>Log ind</span>
+  </div>
+</header>
+
+<div class="category-bar">
+
+  <!-- Fiktive kategori-ikoner -->
+  <div class="category-item">
+    <svg class="category-icon" viewBox="0 0 24 24">
+      <rect width="24" height="24" rx="4" fill="rgba(255,255,255,0.3)"/>
+    </svg>
+    Akademiuddannelser
+  </div>
+
+  <div class="category-item">
+    <svg class="category-icon" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.3)"/>
+    </svg>
+    Diplomuddannelser
+  </div>
+
+  <div class="category-item">
+    <svg class="category-icon" viewBox="0 0 24 24">
+      <path d="M4 4 H20 V20 H4 Z" fill="rgba(255,255,255,0.3)"/>
+    </svg>
+    Efteruddannelse
+  </div>
+
+  <div class="category-item">
+    <!-- Fiktivt IBA-lignende logo -->
+    <svg class="category-icon" viewBox="0 0 24 24">
+      <path d="M4 4 H20 L12 20 Z" fill="rgba(255,255,255,0.3)"/>
+    </svg>
+    IBA Kolding
+  </div>
+
+</div>
+
+<main>
+  <h1>Book eksamenstid</h1>
+  <div class="subtitle">
+    Gælder for studerende på akademiuddannelser og enkeltfag ved IBA Erhvervsakademi Kolding.
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Oplysninger</h2>
+
+      <label>Uddannelse / modul</label>
+      <select>
+        <option>Vælg modul...</option>
+        <option>Akademiuddannelse i Kommunikation</option>
+        <option>Akademiuddannelse i Ledelse</option>
+        <option>Digital Konceptudvikling (enkeltfag)</option>
+        <option>Projektledelse (enkeltfag)</option>
+      </select>
+
+      <label>Dato</label>
+      <input type="date">
+
+      <label>Tidspunkt</label>
+      <select>
+        <option>Vælg tidspunkt...</option>
+        <option>08:30</option>
+        <option>10:00</option>
+        <option>12:30</option>
+        <option>14:00</option>
+      </select>
+
+      <label>Navn</label>
+      <input type="text" placeholder="F.eks. Anna Jensen">
+
+      <label>Studienummer</label>
+      <input type="text" placeholder="F.eks. 20234567">
+
+      <label>E-mail</label>
+      <input type="email" placeholder="din@mail.dk">
+
+      <button class="btn-primary">Bekræft booking</button>
+    </section>
+
+    <aside class="card">
+      <h2>Oversigt</h2>
+
+      <div class="summary-row"><span>Modul</span><span>—</span></div>
+      <div class="summary-row"><span>Dato</span><span>—</span></div>
+      <div class="summary-row"><span>Tidspunkt</span><span>—</span></div>
+
+      <div class="warning">
+        Dette er en fiktiv side til undervisning i cybersikkerhed.  
+        Indtast aldrig personlige oplysninger på ukendte sider.
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  © 2026 EksamenBooking – Fiktiv træningsside for akademiuddannelser
+</footer>
+
+</body>
+</html>
