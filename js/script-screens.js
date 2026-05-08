@@ -44,11 +44,10 @@ const screens = {
     typeLabel: "INFO",
     title: "Hvad er smishing?",
     bodyText:
-      "Smishing er digital svindel via SMS. Beskederne kan ligne officielle beskeder fra fx en skole, bank, fragtfirma eller myndighed. Målet er ofte at få modtageren til at handle hurtigt, klikke på et link eller dele oplysninger. I denne udfordring har du mulighed for at afprøve et scenarie, hvor du skal du vurdere hvad du selv ville gøre i en realistisk hverdagssituation. Det er eksamenstid, og hverdagen er præget af deadlines, afleveringer og beskeder fra forskellige digitale systemer. Midt i en travl dag modtager du en SMS om din eksamensbooking.",
-
+      "Smishing er digital svindel via SMS. Beskederne kan ligne officielle beskeder fra fx en skole, bank, fragtfirma eller myndighed.\n\nI denne udfordring afprøver du et scenarie om smishing uden risiko. Du skal vurdere, hvad du selv ville gøre i en realistisk hverdagssituation.",
     choices: [
       {
-        text: "Start udfordringen",
+        text: "Start smishing udfordringen",
         next: "scenario-01",
       },
     ],
@@ -58,7 +57,7 @@ const screens = {
     typeLabel: "SMS",
     title: "En vigtig SMS",
     bodyText:
-      "Det er eksamenstid, og hverdagen er præget af deadlines, afleveringer og beskeder fra forskellige digitale systemer. Midt i en travl dag modtager du en SMS om din eksamensbooking.",
+      "Det er eksamenstid, og hverdagen er præget af deadlines, afleveringer og beskeder fra forskellige digitale systemer.\n\nMidt i en travl dag modtager du en SMS om din eksamensbooking.",
     image: "imgs/sms.png",
     imageAlt: "Illustration af SMS-besked",
     choices: [
@@ -79,17 +78,15 @@ const screens = {
 
   "consequence-click": {
     typeLabel: "Konsekvens",
-    title: "Siden åbnes",
-    bodyText:
-      "Siden ligner skolens bookingsystem og beder dig logge ind med skolemail for at gemme den nye eksamensdato.",
-    image: "imgs/fake-calendar.png",
-    imageAlt: "Fiktiv side med login og eksamensbooking",
     feedbackTone: "warning",
     feedback: [
-      "Ukendte links kan føre til falske login-sider",
-      "Loginoplysninger kan blive stjålet",
-      "Tidspres øger risikoen for fejlvurderinger",
+      "Du valgte at trykke på linket i SMS'en. Links i beskeder kan være en sikkerhedsrisiko, især når beskeden skaber tidspres.",
     ],
+    title: "Siden åbnes",
+    bodyText:
+      "Du trykkede på linket og kommer ind på en side med et bookingsystem. Her bliver du bedt om at logge ind med skolemail eller CPR-nummer for at få en ny eksamensdato.",
+    image: "imgs/fake-calendar02.png",
+    imageAlt: "Fiktiv side med login og eksamensbooking",
     choices: [
       {
         text: "Jeg lukker siden",
@@ -113,9 +110,9 @@ const screens = {
       "Du tjekker afsender, link og sprog. Flere detaljer virker mistænkelige og matcher ikke skolens normale kommunikation.",
     feedbackTone: "good",
     feedback: [
-      "Beskeden undersøges før handling",
-      "Afsender og domæne bør altid tjekkes",
-      "Officielle kanaler er vigtigst ved tvivl",
+      "Beskeden undersøges før handling.",
+      "Afsender og domæne bør altid tjekkes.",
+      "Officielle kanaler er vigtigst ved tvivl.",
     ],
     choices: [
       {
@@ -138,11 +135,11 @@ const screens = {
     title: "Beskeden ignoreres",
     bodyText:
       "Senere fortæller en studiekammerat, at den samme SMS også er blevet modtaget og allerede brugt til at booke en ny eksamensdato.",
-    feedbackTone: "neutral",
+    feedbackTone: "warning",
     feedback: [
-      "Socialt pres kan påvirke beslutninger",
-      "Information bør verificeres via officielle kilder",
-      "At ignorere beskeden løser ikke nødvendigvis problemet",
+      "Du klikkede ikke på linket, og det reducerer risikoen.",
+      "Men vigtige beskeder bør stadig verificeres.",
+      "Tjek altid via skolens officielle kanaler.",
     ],
     choices: [
       {
@@ -167,9 +164,9 @@ const screens = {
       "Ved at bruge linket kan loginoplysninger være blevet delt med en falsk side. Det sikreste næste skridt er at ændre adgangskode og kontakte skolens IT-support.",
     feedbackTone: "danger",
     feedback: [
-      "Personlige beskeder virker ofte mere troværdige",
-      "Tidspres bruges ofte i digital svindel",
-      "Adgangskoder bør ændres ved mistanke",
+      "Personlige beskeder virker ofte mere troværdige.",
+      "Tidspres bruges ofte i digital svindel.",
+      "Adgangskoder bør ændres ved mistanke.",
     ],
     choices: [
       {
@@ -194,9 +191,9 @@ const screens = {
       "Beskeden verificeres via officielle kanaler i stedet for linket i SMS'en. Det reducerer risikoen for at dele oplysninger med falske sider.",
     feedbackTone: "success",
     feedback: [
-      "Officielle hjemmesider og systemer er sikrest",
-      "Mistænkelige beskeder bør rapporteres",
-      "Kilden bag beskeden bør altid vurderes",
+      "Officielle hjemmesider og systemer er sikrest.",
+      "Mistænkelige beskeder bør rapporteres.",
+      "Kilden bag beskeden bør altid vurderes.",
     ],
     choices: [
       {
@@ -221,9 +218,9 @@ const screens = {
       "Linket blev undgået, men beskeden blev ikke verificeret. Den sikreste løsning er at kontakte skolen direkte via officielle kanaler.",
     feedbackTone: "warning",
     feedback: [
-      "At undgå linket reducerer risikoen",
-      "Vigtige beskeder bør verificeres",
-      "Troværdige kilder bør bruges til kontrol",
+      "At undgå linket reducerer risikoen.",
+      "Vigtige beskeder bør verificeres.",
+      "Troværdige kilder bør bruges til kontrol.",
     ],
     choices: [
       {
