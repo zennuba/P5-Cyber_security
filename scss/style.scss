@@ -45,7 +45,7 @@ button {
 }
 
 button:hover {
-  background-color: $neutral-color--light;
+  background-color: white;
   color: $primary-color;
 }
 
@@ -55,7 +55,7 @@ button:hover {
 }
 
 .screen {
-  min-height: calc(100vh - 4.5rem);
+  min-height: 100vh;
   padding: 2rem 1rem;
 }
 
@@ -98,12 +98,12 @@ button:hover {
   }
 
   &__link {
-    color: $neutral-color--light;
+    color: white;
     text-decoration: none;
   }
 
   &__logo {
-    color: $neutral-color--light;
+    color: white;
     text-decoration: none;
     font-weight: 800;
     text-transform: uppercase;
@@ -124,53 +124,63 @@ button:hover {
 }
 
 .hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 2.75rem 1rem 3.5rem;
+  background-color: $primary-color;
+  
+
+  &__title {
+    margin: 0;
+    font-size: clamp(2.7rem, 6.6vw, 5.8rem);
+    line-height: 1;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+
+  &__subtitle,
+  &__logo-text {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 2rem 1rem 4rem;
-    background-color: $primary-color;
+    gap: 0.75rem;
+    text-align: center;
+}
 
-    &__title {
-      text-align: center;
-    }
-
-    &__subtitle,
-    &__logo-text {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      text-align: center;
-    }
-
-    &__logo-text {
-      font-size: clamp(3rem, 10vw, 5rem);
-      color: $neutral-color--light;
-    }
-
-    &__logo-text span {
-      color: $accent-color;
-    }
-
-    &__subtitle {
-    color: $neutral-color--light;
-    font-size: clamp(1.2rem, 5vw, 1.8rem);
+  &__subtitle {
+    color: white;
+    font-size: clamp(1rem, 2.6vw, 1.45rem);
     font-weight: 400;
+    letter-spacing: 0.02em;
     text-align: center;
   }
 
+  &__logo-text {
+    margin: 0;
+    color: white;
+    font-size: inherit;
+    font-weight: 900;
+    line-height: 1;
+
+    span {
+      color: $accent-color;
+    }
+  }
+
   &__line {
-    width: 80%;
-    height: 3px;
-    margin: 0 auto;
-    background-color: $accent-color;
+    display: none;
   }
 
   &__image img {
     width: 100%;
     max-height: 22rem;
     object-fit: cover;
+    border: 1px solid rgba(216, 255, 167, 0.35);
     border-radius: 8px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
   }
 
   &__textbox {
@@ -178,7 +188,7 @@ button:hover {
   }
 
   &__big-text {
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.5rem;
     font-weight: 800;
     line-height: 1.1;
     text-align: center;
@@ -190,23 +200,24 @@ button:hover {
   }
 
   &__actions {
-    display: flex;
-    justify-content: center;
-  }
+  display: flex;
+  justify-content: center;
+}
 
-  &__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+&__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
   &__info-text {
     margin: 0;
-    color: $neutral-color--light;
+    color: white;
     line-height: 1.45;
     text-align: center;
   }
 }
+
 
 /*
 .threat-menu {
@@ -255,14 +266,6 @@ button:hover {
 }
 */
 
-@media (min-width: 768px) {
-  .screen {
-    padding: 4rem 2rem;
-  }
-  .hero__image img {
-    max-height: 20rem;
-  }
-}
 
 .dynamic-screen {
   place-items: center;
@@ -273,23 +276,21 @@ button:hover {
   }
 
   &__content {
-    width: min(100%, 28rem);
-  }
-
-  &__image img {
-    width: 100%;
-    max-height: 24rem;
-    object-fit: contain;
-    border-radius: 8px;
+    width: min(100%, 64rem);
   }
 
   &__eyebrow {
-    margin: 0 0 1.5rem;
-    color: $neutral-color--light;
-    font-size: 1.45rem;
-    font-weight: 800;
+    margin: 0 0 2rem;
+    color: white;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 900;
+    line-height: 1;
     text-align: center;
     text-transform: uppercase;
+
+    span {
+      color: $accent-color;
+    }
   }
 
   &__badge {
@@ -305,41 +306,75 @@ button:hover {
   }
 
   &__title {
-    margin: 0 0 0.75rem;
-    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    margin: 0 0 1rem;
+    color: $accent-color;
+    font-size: clamp(2rem, 6vw, 2.8rem);
     line-height: 1.05;
   }
 
   &__bodytext {
-    margin: 0 0 1rem;
-    color: $neutral-color--light;
-    line-height: 1.45;
+    max-width: 52rem;
+    margin: 0 0 1.5rem;
+    color: white;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.6;
     white-space: pre-line;
   }
 
+  &__briefing {
+    display: grid;
+    gap: 1.25rem;
+    margin: 1.75rem 0;
+  }
+
+  &__briefing.is-hidden {
+    display: none;
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__image img {
+    width: auto;
+    max-width: min(100%, 28rem);
+    max-height: 34rem;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
   &__feedback {
-    min-height: auto;
-    margin: 1.5rem 0;
+    margin: 1.25rem 0 2rem;
     padding: 1rem 1.25rem;
     background-color: rgba(255, 255, 255, 0.08);
-    border: 3px solid $neutral-color--light;
+    border: 3px solid white;
     border-radius: 8px;
-    color: $neutral-color--light;
-    line-height: 1.5;
+    color: white;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.55;
   }
 
-  &__feedback--good,
-  &__feedback--success {
-    border-color: $success-color;
+  &__feedback li {
+    margin-bottom: 0.35rem;
   }
 
-  &__feedback--warning {
-    border-color: $warning-color;
+  &__feedback li:last-child {
+    margin-bottom: 0;
   }
 
-  &__feedback--danger {
-    border-color: $danger-color;
-  }
+&__feedback--good,
+&__feedback--success {
+  border-color: $success-color;
+}
+
+&__feedback--warning {
+  border-color: $warning-color;
+}
+
+&__feedback--danger {
+  border-color: $danger-color;
+}
 
   &__question {
     margin: 2rem 0 1rem;
@@ -355,15 +390,89 @@ button:hover {
     width: 100%;
     min-height: 4rem;
     background-color: transparent;
-    border: 3px solid $neutral-color--light;
+    border: 3px solid white;
     border-radius: 8px;
-    color: $neutral-color--light;
+    color: white;
     text-align: center;
   }
 
   &__btn:hover {
-    background-color: $neutral-color--light;
+    background-color: white;
     color: $primary-color;
+  }
+}
+
+.briefing-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.1rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background-color: rgba(3, 7, 18, 0.38);
+  border: 1px solid rgba(216, 255, 167, 0.28);
+  border-radius: 8px;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+  color: white;
+
+  p {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    line-height: 1.55;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 2.65rem;
+    height: 2.65rem;
+    color: #ff4d5f;
+    background-color: rgba(255, 77, 95, 0.12);
+    border: 2px solid #ff4d5f;
+    border-radius: 50%;
+    font-size: 1.45rem;
+    font-weight: 900;
+  }
+
+  &__icon--info {
+    color: $accent-color;
+    background-color: rgba(216, 255, 167, 0.12);
+    border-color: $accent-color;
+  }
+
+  &__title,
+  &__subtitle {
+    margin: 0 0 1rem;
+    color: white;
+    font-size: clamp(1.25rem, 3vw, 1.55rem);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+    font-size: clamp(1.05rem, 2vw, 1.18rem);
+    line-height: 1.75;
+  }
+
+  &__meta {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: clamp(0.98rem, 1.8vw, 1.08rem);
+  }
+}
+
+.is-briefing-screen {
+  .dynamic-screen__image {
+    margin: 1.5rem 0 1.75rem;
+  }
+
+  .dynamic-screen__image img {
+    max-width: min(100%, 24rem);
+    max-height: 30rem;
   }
 }
 
@@ -374,11 +483,11 @@ button:hover {
 
 .learn-more {
   &__content {
-    width: min(100%, 34rem);
+    width: min(100%, 64rem);
   }
 
   p {
-    color: $neutral-color--light;
+    color: white;
     line-height: 1.5;
   }
 }
@@ -387,57 +496,50 @@ button:hover {
   display: none;
 }
 
-@media (min-width: 768px) {
+  @media (min-width: 768px) {
   .screen {
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
   }
 
-  .hero__logo-text {
-    font-size: clamp(5rem, 8vw, 7rem);
-  }
-}
+  .hero {
+    align-items: center;
+    padding: 4.5rem 2rem 4rem;
 
-.hero {
-  align-items: center;
-  padding: 1.5rem 1rem 2rem;
+    &__title,
+    &__textbox {
+      width: min(100%, 72rem);
+    }
 
-  &__title,
-  &__textbox {
-    width: min(100%, 60rem);
-  }
+    &__logo-text {
+      flex-direction: row;
+      justify-content: center;
+      gap: 0.16em;
+      white-space: nowrap;
+    }
 
-  &__image {
-    width: min(100%, 70rem);
-  }
+    &__image {
+      width: min(100%, 104rem);
+    }
 
-  &__image img {
-    max-height: 18rem;
-  }
+    &__image img {
+      max-height: 24rem;
+    }
 
-  &__big-text,
-  &__info-text,
-  h4 {
-    text-align: center;
-  }
-}
-
-.dynamic-screen {
-  &__content {
-    width: min(100%, 42rem);
+    &__big-text,
+    &__info-text,
+    h4 {
+      text-align: center;
+    }
   }
 
-  &__image img {
-    max-height: 28rem;
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
-}
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }

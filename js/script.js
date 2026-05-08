@@ -8,12 +8,24 @@ const feedbackElement = document.querySelector(".dynamic-screen__feedback");
 const badgeElement = document.querySelector(".dynamic-screen__badge");
 const imageWrapElement = document.querySelector(".dynamic-screen__image");
 const imageElement = document.querySelector(".dynamic-screen__image img");
+const questionElement = document.querySelector(".dynamic-screen__question");
+const briefingElement = document.querySelector(".dynamic-screen__briefing");
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "auto",
+  });
+}
 
 function showScreen(screenName) {
   allScreens.forEach((screen) => {
     const isCurrentScreen = screen.dataset.screen === screenName;
     screen.classList.toggle("is-hidden", !isCurrentScreen);
   });
+
+  scrollToTop();
 }
 
 function renderFeedback(currentScreen) {
@@ -45,6 +57,10 @@ function renderScreen(screenKey) {
   titleElement.textContent = currentScreen.title;
   bodyElement.textContent = currentScreen.bodyText;
   badgeElement.textContent = currentScreen.typeLabel;
+  document.body.classList.toggle("is-briefing-screen", Boolean(currentScreen.isBriefing));
+  questionElement.textContent = currentScreen.questionTitle || "Hvad gør du?";
+  questionElement.classList.toggle("is-hidden", Boolean(currentScreen.hideQuestion));
+  briefingElement.classList.toggle("is-hidden", !currentScreen.isBriefing);
 
   if (currentScreen.image) {
     imageElement.src = currentScreen.image;

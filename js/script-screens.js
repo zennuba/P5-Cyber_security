@@ -1,53 +1,16 @@
-const screens = {
-  "scenario-intro-phishing": {
-    typeLabel: "E-mail",
-    title: "Phishing",
-    bodyText:
-      "Du modtager en mail, der virker officiel og beder dig handle hurtigt. Scenariet er endnu ikke færdigudviklet.",
-    image: "imgs/smishing.png",
-    imageAlt: "Phishing illustration",
-    choices: [
-      {
-        text: "Tilbage til forsiden",
-        next: "hero",
-      },
-    ],
-  },
-
-  "scenario-intro-cloud": {
-    typeLabel: "Cloud",
-    title: "Cloud-filer",
-    bodyText:
-      "Du skal vurdere, hvordan filer kan deles sikkert i skyen. Scenariet er endnu ikke færdigudviklet.",
-    choices: [
-      {
-        text: "Tilbage til forsiden",
-        next: "hero",
-      },
-    ],
-  },
-
-  "scenario-intro-router": {
-    typeLabel: "Netværk",
-    title: "Usikkert netværk",
-    bodyText:
-      "Du opdager tegn på et usikkert netværk og skal vurdere risikoen. Scenariet er endnu ikke færdigudviklet.",
-    choices: [
-      {
-        text: "Tilbage til forsiden",
-        next: "hero",
-      },
-    ],
-  },
-
+﻿const screens = {
   "scenario-intro-smishing": {
     typeLabel: "INFO",
     title: "Hvad er smishing?",
     bodyText:
-      "Smishing er digital svindel via SMS. Beskederne kan ligne officielle beskeder fra fx en skole, bank, fragtfirma eller myndighed.\n\nI denne udfordring afprøver du et scenarie om smishing uden risiko. Du skal vurdere, hvad du selv ville gøre i en realistisk hverdagssituation.",
+      "Smishing er digital svindel via SMS. Beskederne kan ligne officielle beskeder fra fx banken, et fragtfirma eller myndighederne.\n\nI denne udfordring afprøver du et scenarie om smishing uden risiko. Du skal vurdere, hvad du selv ville gøre i en realistisk hverdagssituation.",
+    image: "img/smishing_hook.png",
+    imageAlt: "Illustration af SMS-besked",
+    isBriefing: true,
+    hideQuestion: true,
     choices: [
       {
-        text: "Start smishing udfordringen",
+        text: "Start smishing-udfordringen",
         next: "scenario-01",
       },
     ],
@@ -57,8 +20,8 @@ const screens = {
     typeLabel: "SMS",
     title: "En vigtig SMS",
     bodyText:
-      "Det er eksamenstid, og hverdagen er præget af deadlines, afleveringer og beskeder fra forskellige digitale systemer.\n\nMidt i en travl dag modtager du en SMS om din eksamensbooking.",
-    image: "imgs/sms.png",
+      "Det er eksamenstid, og hverdagen er præget af deadlines, afleveringer og beskeder fra forskellige digitale systemer.\n\nMidt i en travl hverdag modtager du en SMS om din eksamen.",
+    image: "img/sms-message.png",
     imageAlt: "Illustration af SMS-besked",
     choices: [
       {
@@ -80,12 +43,11 @@ const screens = {
     typeLabel: "Konsekvens",
     feedbackTone: "warning",
     feedback: [
-      "Du valgte at trykke på linket i SMS'en. Links i beskeder kan være en sikkerhedsrisiko, især når beskeden skaber tidspres.",
-    ],
+      "Du valgte at trykke på linket i SMS’en. Links i beskeder kan være en sikkerhedsrisiko, især når beskeden skaber tidspres. En god huskeregel er: Stop, tænk, tjek."],
     title: "Siden åbnes",
     bodyText:
-      "Du trykkede på linket og kommer ind på en side med et bookingsystem. Her bliver du bedt om at logge ind med skolemail eller CPR-nummer for at få en ny eksamensdato.",
-    image: "imgs/fake-calendar02.png",
+      "Linket fører dig ind på en side med et bookingsystem. Her bliver du bedt om at logge ind med skolemail eller CPR-nummer for at få en ny eksamensdato.",
+    image: "img/fake-calendar02.png",
     imageAlt: "Fiktiv side med login og eksamensbooking",
     choices: [
       {
@@ -107,7 +69,7 @@ const screens = {
     typeLabel: "Undersøgelse",
     title: "Beskeden undersøges",
     bodyText:
-      "Du tjekker afsender, link og sprog. Flere detaljer virker mistænkelige og matcher ikke skolens normale kommunikation.",
+      "Du tjekker afsender, link og sprog. Flere detaljer virker usædvanlige og matcher ikke skolens normale kommunikation.",
     feedbackTone: "good",
     feedback: [
       "Beskeden undersøges før handling.",
@@ -158,7 +120,7 @@ const screens = {
   },
 
   "conclusion-book": {
-    typeLabel: "Resultat",
+    typeLabel: "Undgik risiko",
     title: "Risiko for falsk side",
     bodyText:
       "Ved at bruge linket kan loginoplysninger være blevet delt med en falsk side. Det sikreste næste skridt er at ændre adgangskode og kontakte skolens IT-support.",
@@ -186,7 +148,7 @@ const screens = {
 
   "conclusion-contact-it": {
     typeLabel: "Resultat",
-    title: "God beslutning",
+    title: "Cyber Hero ",
     bodyText:
       "Beskeden verificeres via officielle kanaler i stedet for linket i SMS'en. Det reducerer risikoen for at dele oplysninger med falske sider.",
     feedbackTone: "success",
@@ -215,12 +177,12 @@ const screens = {
     typeLabel: "Resultat",
     title: "Næsten sikkert",
     bodyText:
-      "Linket blev undgået, men beskeden blev ikke verificeret. Den sikreste løsning er at kontakte skolen direkte via officielle kanaler.",
+      "Du undgik linket, men du fik ikke verificeret beskeden. Når du ikke tjekker den, kan du både gå glip af vigtig information og misse muligheden for at hjælpe andre ved at rapportere beskeden til IT. Den sikreste løsning er at kontakte skolen via deres officielle kanaler.",
     feedbackTone: "warning",
     feedback: [
-      "At undgå linket reducerer risikoen.",
-      "Vigtige beskeder bør verificeres.",
-      "Troværdige kilder bør bruges til kontrol.",
+      "At undgå linket reducerer risikoen — du deler ikke oplysninger med en ukendt side.",
+      "Vigtige beskeder bør verificeres — ellers kan du overse noget vigtigt.",
+      "Troværdige kilder bør bruges til kontrol — det giver dig en sikker afklaring.",
     ],
     choices: [
       {
