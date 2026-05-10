@@ -1,10 +1,9 @@
 ﻿const screens = {
   "scenario-intro-smishing": {
     typeLabel: "INFO",
-    title: "Hvad er smishing?",
-    bodyText:
-      "Smishing er digital svindel via SMS. Beskederne kan ligne officielle beskeder fra fx banken, et fragtfirma eller myndighederne.\n\nI denne udfordring afprøver du et scenarie om smishing uden risiko. Du skal vurdere, hvad du selv ville gøre i en realistisk hverdagssituation.",
-    image: "img/smishing_hook.png",
+    title: "Smishing-udfordringen",
+    bodyText: "Du skal nu prøve et kort interaktivt scenarie. Læs situationen, vælg en handling, og se hvordan forløbet udvikler sig.",
+    image: "imgs/sms-flow1-valg.png",
     imageAlt: "Illustration af SMS-besked",
     isBriefing: true,
     hideQuestion: true,
@@ -21,15 +20,15 @@
     title: "En vigtig SMS",
     bodyText:
       "Det er eksamenstid, og hverdagen er præget af deadlines, afleveringer og beskeder fra forskellige digitale systemer.\n\nMidt i en travl hverdag modtager du en SMS om din eksamen.",
-    image: "img/sms-message.png",
+    image: "imgs/sms-flow1-valg.png",
     imageAlt: "Illustration af SMS-besked",
     choices: [
       {
-        text: "Jeg klikker på linket",
+        text: "Jeg klikker på linket i SMS'en",
         next: "consequence-click",
       },
       {
-        text: "Jeg undersøger SMS'en først",
+        text: "Jeg undersøger SMS'en",
         next: "consequence-check",
       },
       {
@@ -40,18 +39,21 @@
   },
 
   "consequence-click": {
-    typeLabel: "Konsekvens",
+    typeLabel: "Klikker på linket",
     feedbackTone: "warning",
     feedback: [
-      "Du valgte at trykke på linket i SMS’en. Links i beskeder kan være en sikkerhedsrisiko, især når beskeden skaber tidspres. En god huskeregel er: Stop, tænk, tjek."],
+      "Links i beskeder kan være en sikkerhedsrisiko, især når beskeden skaber tidspres.",
+      "Smishing-beskeder forsøger ofte at få modtageren til at reagere hurtigt.",
+      "En god huskeregel er: Stop, tænk, tjek.",
+    ],
     title: "Siden åbnes",
     bodyText:
-      "Linket fører dig ind på en side med et bookingsystem. Her bliver du bedt om at logge ind med skolemail eller CPR-nummer for at få en ny eksamensdato.",
-    image: "img/fake-calendar02.png",
+      "Linket fører dig ind på en side med et bookingsystem. Her bliver du bedt om at logge ind med skolemail for at få en ny eksamensdato.",
+    image: "imgs/fake-calendar02.png",
     imageAlt: "Fiktiv side med login og eksamensbooking",
     choices: [
       {
-        text: "Jeg lukker siden",
+        text: "Jeg lukker siden og ignorerer beskeden",
         next: "conclusion-ignore-book",
       },
       {
@@ -66,27 +68,28 @@
   },
 
   "consequence-check": {
-    typeLabel: "Undersøgelse",
-    title: "Beskeden undersøges",
-    bodyText:
-      "Du tjekker afsender, link og sprog. Flere detaljer virker usædvanlige og matcher ikke skolens normale kommunikation.",
+    typeLabel: "Undersøger SMS'en først",
+    title: "Er den ægte eller falsk?",
+    bodyText: "Du har undersøgt SMS'en. Er den ægte eller falsk, det er kun dig der kan afgøre det lige nu" ,
+      image: "",
+    imageAlt: "Fiktiv side med login og eksamensbooking",
     feedbackTone: "good",
     feedback: [
-      "Beskeden undersøges før handling.",
-      "Afsender og domæne bør altid tjekkes.",
-      "Officielle kanaler er vigtigst ved tvivl.",
-    ],
+      "Du valgte at undersøge SMS’en nærmere. Måske kender du allerede huskereglen: Stop, tænk, tjek.",
+      "Ved at gøre det minimerer du risikoen for at udsætte dig for cyberkriminaslitet ",
+      "Smishing-beskeder ligner nemlig ofte almindelige beskeder fra virksomheder eller institutioner og med AI er hackerne blevet endnu bedre til det.",
+        ],
     choices: [
       {
-        text: "Jeg kontakter skolen officielt",
+        text: "Jeg er i tvivl og kontakter skolen officielt",
         next: "conclusion-contact-it",
       },
       {
-        text: "Jeg booker alligevel en ny dato",
+        text: "Jeg synes SMSen virker ægte, jeg klikker på linket",
         next: "conclusion-book",
       },
       {
-        text: "Jeg ignorerer beskeden",
+        text: "Jeg ignorerer beskeden, det er smishing",
         next: "conclusion-ignore-book",
       },
     ],
@@ -96,12 +99,13 @@
     typeLabel: "Konsekvens",
     title: "Beskeden ignoreres",
     bodyText:
-      "Senere fortæller en studiekammerat, at den samme SMS også er blevet modtaget og allerede brugt til at booke en ny eksamensdato.",
+      "Du valgte at ignorere beskeden. Senere sanmme dag fortæller en studiekammerat, at han fik samme SMS og at han allerede har booket en ny eksamensdato. Han fortalte også at der kun er 2 eksamens-tider tilbage",
     feedbackTone: "warning",
     feedback: [
-      "Du klikkede ikke på linket, og det reducerer risikoen.",
-      "Men vigtige beskeder bør stadig verificeres.",
-      "Tjek altid via skolens officielle kanaler.",
+      "Du klikkede ikke på linket, og det reducerer risikoen for Smishing.",
+      "Desværre øger det risikoen for at du overser vigtige beskeder.",
+      "At din ven har fået samme SMS, kan være et trick.",
+      "Hvis du er i tvivl så kontakt altid afsenderen via officielle kanaler i stedet for linket.",
     ],
     choices: [
       {
@@ -126,9 +130,10 @@
       "Ved at bruge linket kan loginoplysninger være blevet delt med en falsk side. Det sikreste næste skridt er at ændre adgangskode og kontakte skolens IT-support.",
     feedbackTone: "danger",
     feedback: [
-      "Personlige beskeder virker ofte mere troværdige.",
-      "Tidspres bruges ofte i digital svindel.",
-      "Adgangskoder bør ændres ved mistanke.",
+      "Du kan opleve at andre får samme besked, men det gør ikke SMS'en mere ægte.", 
+      "Faktisk er det en kendt taktik hackerne bruger, som hedder social engeneering, hvor de bruger FOMO/frygten for at gå glip til at få modtageren til at klikke",
+      "Tidspres og kunstig knaphed er også kendte metoder.",
+      "Adgangskoder bør ændres hurtigst muligt ved mistanke.",
     ],
     choices: [
       {
@@ -150,11 +155,11 @@
     typeLabel: "Resultat",
     title: "Cyber Hero ",
     bodyText:
-      "Beskeden verificeres via officielle kanaler i stedet for linket i SMS'en. Det reducerer risikoen for at dele oplysninger med falske sider.",
+      "Beskeden verificeres via officielle kanaler i stedet for linket i SMS'en. Det reducerer risikoen for at dele oplysninger med falske sider.Samtidig hjælper du med at minimere trusle ved at rapportere den",
     feedbackTone: "success",
     feedback: [
       "Officielle hjemmesider og systemer er sikrest.",
-      "Mistænkelige beskeder bør rapporteres.",
+      "Mistænkelige beskeder bør altid rapporteres.",
       "Kilden bag beskeden bør altid vurderes.",
     ],
     choices: [
@@ -177,11 +182,11 @@
     typeLabel: "Resultat",
     title: "Næsten sikkert",
     bodyText:
-      "Du undgik linket, men du fik ikke verificeret beskeden. Når du ikke tjekker den, kan du både gå glip af vigtig information og misse muligheden for at hjælpe andre ved at rapportere beskeden til IT. Den sikreste løsning er at kontakte skolen via deres officielle kanaler.",
+      "Du undgik linket, men du fik ikke verificeret beskeden. Når du ikke tjekker den, kan du både gå glip af vigtig information eller misse muligheden for at hjælpe andre ved at rapportere en potentiel trussel til IT. Den sikreste løsning er at kontakte skolen via deres officielle kanaler.",
     feedbackTone: "warning",
     feedback: [
       "At undgå linket reducerer risikoen — du deler ikke oplysninger med en ukendt side.",
-      "Vigtige beskeder bør verificeres — ellers kan du overse noget vigtigt.",
+      "Men vigtige beskeder bør verificeres — ellers kan du overse noget vigtigt, som fx en eksamen.",
       "Troværdige kilder bør bruges til kontrol — det giver dig en sikker afklaring.",
     ],
     choices: [

@@ -474,4 +474,45 @@ button:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+  .dynamic-screen__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 28rem);
+    grid-template-areas: "eyebrow eyebrow" "badge image" "feedback image" "title image" "body image" "question image" "choices image";
+    align-items: start;
+    column-gap: 4rem;
+    width: min(100%, 78rem);
+  }
+  .dynamic-screen__eyebrow {
+    grid-area: eyebrow;
+    text-align: left;
+  }
+  .dynamic-screen__badge {
+    grid-area: badge;
+    justify-self: start;
+  }
+  .dynamic-screen__feedback {
+    grid-area: feedback;
+  }
+  .dynamic-screen__title {
+    grid-area: title;
+  }
+  .dynamic-screen__bodytext {
+    grid-area: body;
+    max-width: none;
+  }
+  .dynamic-screen__image {
+    grid-area: image;
+    justify-content: flex-end;
+  }
+  .dynamic-screen__image img {
+    width: 100%;
+    max-width: 28rem;
+    max-height: 34rem;
+  }
+  .dynamic-screen__question {
+    grid-area: question;
+  }
+  .dynamic-screen__choices {
+    grid-area: choices;
+  }
 }/*# sourceMappingURL=style.css.map */

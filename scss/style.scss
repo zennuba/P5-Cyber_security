@@ -30,6 +30,7 @@ h6 {
 img {
   display: block;
   height: auto;
+  width: 100%;
   max-width: 100%;
 }
 
@@ -39,7 +40,7 @@ button {
   background-color: $accent-color;
   color: $primary-color;
   border: none;
-  border-radius: 999px;
+  border-radius: 0%;
   padding: 0.8rem 1.4rem;
   font-weight: 700;
 }
@@ -70,56 +71,15 @@ button:hover {
 }
 
 .site-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  position: relative;
-
-  &__list {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 0;
-    padding: 1rem;
-    list-style: none;
-    position: absolute;
-    top: 100%;
-    right: 1rem;
-    z-index: 10;
-    background-color: $primary-color;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-  }
-
-  &__list.is-open {
-    display: flex;
-  }
-
-  &__link {
-    color: white;
-    text-decoration: none;
-  }
-
   &__logo {
     color: white;
     text-decoration: none;
     font-weight: 800;
     text-transform: uppercase;
-  }
 
-  &__logo span {
+    span {
     color: $accent-color;
-  }
-
-  &__burger {
-    border: none;
-    background: none;
-    color: $accent-color;
-    cursor: pointer;
-    font-size: 2rem;
-    padding: 0.25rem;
+    }
   }
 }
 
@@ -137,9 +97,7 @@ button:hover {
     line-height: 1;
     font-weight: 900;
     text-align: center;
-    text-transform: uppercase;
   }
-
 
   &__subtitle,
   &__logo-text {
@@ -148,7 +106,7 @@ button:hover {
     flex-direction: column;
     gap: 0.75rem;
     text-align: center;
-}
+  }
 
   &__subtitle {
     color: white;
@@ -164,14 +122,9 @@ button:hover {
     font-size: inherit;
     font-weight: 900;
     line-height: 1;
-
-    span {
+      span {
       color: $accent-color;
     }
-  }
-
-  &__line {
-    display: none;
   }
 
   &__image img {
@@ -202,69 +155,34 @@ button:hover {
   &__actions {
   display: flex;
   justify-content: center;
-}
-
-&__button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-  &__info-text {
-    margin: 0;
-    color: white;
-    line-height: 1.45;
-    text-align: center;
   }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+  &__info-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.1rem;
+    padding: clamp(1.25rem, 3vw, 1.75rem);
+    background-color: rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(216, 255, 167, 0.28);
+    border-radius: 8px;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+    color: white;
+  }
+  &__info-text {
+      margin: 0;
+      color: rgb(209, 23, 23);
+      line-height: 1.45;
+      text-align: center;
+  }
+  
 }
 
-
-/*
-.threat-menu {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-  width: min(100%, 18rem);
-  margin: 0 auto;
-}
-
-.threat-card {
-  overflow: hidden;
-  width: 100%;
-  padding: 0;
-  background: none;
-  border: 3px solid white;
-  border-radius: 8px;
-  transition:
-    border-color 180ms ease,
-    transform 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.threat-card img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  transition: transform 180ms ease;
-}
-
-.threat-card:hover,
-.threat-card:focus-visible {
-  border-color: $accent-color;
-  box-shadow: 0 0 0 4px rgba(95, 211, 188, 0.2);
-  transform: translateY(-2px);
-}
-
-.threat-card:hover img,
-.threat-card:focus-visible img {
-  transform: scale(1.04);
-}
-
-.threat-card:focus-visible {
-  outline: 2px solid rgb(0, 0, 0);
-  outline-offset: 5px;
-}
-*/
 
 
 .dynamic-screen {
@@ -363,18 +281,18 @@ button:hover {
     margin-bottom: 0;
   }
 
-&__feedback--good,
-&__feedback--success {
-  border-color: $success-color;
-}
+  &__feedback--good,
+  &__feedback--success {
+    border-color: $success-color;
+  }
 
-&__feedback--warning {
-  border-color: $warning-color;
-}
+  &__feedback--warning {
+    border-color: $warning-color;
+  }
 
-&__feedback--danger {
-  border-color: $danger-color;
-}
+  &__feedback--danger {
+    border-color: $danger-color;
+  }
 
   &__question {
     margin: 2rem 0 1rem;
@@ -431,7 +349,7 @@ button:hover {
     color: #ff4d5f;
     background-color: rgba(255, 77, 95, 0.12);
     border: 2px solid #ff4d5f;
-    border-radius: 50%;
+    border-radius: 10%;
     font-size: 1.45rem;
     font-weight: 900;
   }
@@ -449,7 +367,6 @@ button:hover {
     font-size: clamp(1.25rem, 3vw, 1.55rem);
     font-weight: 900;
     letter-spacing: 0.06em;
-    text-transform: uppercase;
   }
 
   &__list {
@@ -474,17 +391,6 @@ button:hover {
     max-width: min(100%, 24rem);
     max-height: 30rem;
   }
-}
-
-.learn-more:not(.is-hidden) {
-  display: grid;
-  place-items: center;
-}
-
-.learn-more {
-  &__content {
-    width: min(100%, 64rem);
-  }
 
   p {
     color: white;
@@ -492,13 +398,30 @@ button:hover {
   }
 }
 
-.footer {
-  display: none;
-}
-
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
   .screen {
     padding: 4rem 2rem;
+  }
+  .dynamic-screen__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .dynamic-screen__eyebrow,
+  .dynamic-screen__badge,
+  .dynamic-screen__feedback,
+  .dynamic-screen__title,
+  .dynamic-screen__bodytext,
+  .dynamic-screen__briefing,
+  .dynamic-screen__question,
+  .dynamic-screen__choices {
+    grid-column: 1;
+  } 
+
+  .dynamic-screen__image {
+    grid-column: 2;
+    grid-row: 2 / 8;
   }
 
   .hero {
@@ -530,16 +453,5 @@ button:hover {
     h4 {
       text-align: center;
     }
-  }
-
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  .split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
   }
 }

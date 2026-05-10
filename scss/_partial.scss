@@ -1,33 +1,11 @@
-$primary-color: #362F49;   
-$secondary-color: #030712; 
-$accent-color: #D8FFA7; 
-$accent-sec-color: #DCCCFF;   
-$bg-color: #f9fafb;        
-$text-color: #e5e7eb;     
-$success-color: #22c55e;
-$warning-color: #ffcf5a;
-$danger-color: #ff694f;
-$neutral-color--dark: black; 
-$neutral-color--light: white;
+@use "./variables" as *;
 
-$font:
-  SF Pro Display,
-  Source Code Pro,
-  Segoe UI,
-  Tahoma,
-  Geneva,
-  Verdana,
-  sans-serif;
-
-/* Mixin*/
-/* Mixin er en måde at genbruge kode på. Man tager kode som bruges flere steder og samler det i en mixin */
 @mixin flex($justify: center, $align: center) {
-  /* inde i paranteserne kan man have parametre og variabler 
-- så bliver det en lokal mixin*/
   display: flex;
   justify-content: $justify;
   align-items: $align;
 }
+
 @mixin btn($bg-color: $primary-color, $btn-padding: 1rem) {
   background-color: $bg-color;
   padding: $btn-padding;
@@ -36,3 +14,8 @@ $font:
   text-decoration: none;
   text-align: center;
 }
+
+/* Mixin Genbrug af kode: Man tager kode som bruges flere steder og samler det i en mixin */
+
+  /* inde i paranteserne kan man have parametre og variabler 
+- så bliver det en lokal mixin @mixin flex($justify: center, $align: center) {*/
